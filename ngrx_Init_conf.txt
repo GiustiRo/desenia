@@ -1,0 +1,38 @@
+1) ng add @ngrx/[store, effects, entity, schematics, store-devtools] // todos requeridos!
+	-@ngrx/router-store // opcional...
+
+2) ng generate @ngrx/schematics:store State --root --state-path store --module app.module.ts
+	--root (inicializa el store con ".forRoot" ).
+	--state-path (crea store en nueva carpeta "store").
+
+3) ng generate @ngrx/schematics:feature ./store/Main --group --reducers index.ts -m app.module.ts --api true --skip-tests --dry-run
+	".store/Main" => quiero crear los subdirectorios en mi carpeta "store".
+	--group => crea carpetas para cada archivo.
+	--reducers => actualiza mi store creada con este nuevo feature (deja de estar vacía la store a tener el objeto AppState vacío).
+	--api => genera caminos de succes y faliure para reducers, actions y effects.
+	--skip-tests => sin ".specs".
+	--dry-run => No hace cambios, confirmo en CLI primero. Si todo ok, lo borro y corro de nuevo.
+
+	*** Genera el EffectsModule".forFeature(...)" => hay que cambiarlo a ".forRoot(...)".
+
+4) Borrar actions.ts y reducers.ts para que se generen los nuevos archivos CRUD
+
+5) ng generate @ngrx/schematics:entity store/Main --reducers index.ts --group --skip-tests --dry-run
+	--reducers => actualiza mi store creada con este nuevo feature (deja de estar vacía la store a tener el objeto AppState vacío).
+	--group => crea carpetas para cada archivo.
+	--skip-tests => sin ".specs".
+
+	** El Entity me genera un CRUD completo con reducers, actions y un modelo de datos.
+
+6) Ajustar imports e invocaciones:
+	- Actions => Effects => Reducers (agregar el que inicia la carga de elementos en A y R, ya presente en E) Actualizar flujo.
+	- Ajustar App.Module imports, selectors.ts, index.ts
+	- Agregar en Reducer => "sortComprarer: false" y "selectId: (data: AppState) => data?.id" //Va a cambiar según mi modelo real de datos).
+
+7) Instanciar Store ya sea en Facade/Servicio/Componente...
+	- import * as fromMain from 'ruta/store/index.ts'.
+	- en constructor => private store: Store<fromMain.State>
+
+8) Para dejar funcional los Effects:
+	- importar en app.module => HttpClientModule (from @angular/common/http) 
+	- luego en effects.ts => HttpClient

@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Stick+No+Bills:wght@200&display=swap');
+body{
+    min-height: 100vh;
+    background-color: rgb(201,180,173);
+    // background-image: linear-gradient(45deg, #c9b4ad, white);
+    // background-size: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: rgb(45, 45, 45);
+    font-family: 'Stick No Bills', serif;
+    letter-spacing: 5px;
+    p{
+        font-weight: bold;
+    }
+    * {
+        transition: 0.3s;
+    }
+}

@@ -1,3 +1,10 @@
 export interface Photo {
-  id: string;
+  id: number,
+  imageUrl: string,
+  home: boolean,
+  layout: number,
+  cover: boolean,
+  desc: string,
+  title: string,
+  serie: string
 }
