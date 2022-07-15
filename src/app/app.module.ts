@@ -12,6 +12,7 @@ import { reducers, metaReducers } from './store';
 import { PhotoModule } from './modules/photo/photo.module';
 import { InteriorModule } from './modules/interior/interior.module';
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -26,7 +27,7 @@ import { InteriorModule } from './modules/interior/interior.module';
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     PhotoModule,
-    InteriorModule
+    InteriorModule,
 
   ],
   providers: [],

@@ -7,10 +7,14 @@ import * as fromPhoto from './store/reducers/photo.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { PhotoEffects } from './store/effects/photo.effects';
 import { SharedModule } from '../shared/shared.module';
+import { PhotoService } from './services/photo.service';
+import { PhotoSectionComponent } from './components/photo-section/photo-section.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    PhotoSectionComponent
+  ],
   imports: [
     CommonModule,
     PhotoRoutingModule,
@@ -18,6 +22,7 @@ import { SharedModule } from '../shared/shared.module';
     // StoreModule.forFeature(fromPhoto.photoesFeatureKey, fromPhoto.reducer),
     EffectsModule.forFeature([PhotoEffects]),
     StoreModule.forFeature(fromPhoto.photoesFeatureKey, fromPhoto.reducer)
-  ]
+  ], 
+  providers:[PhotoService]
 })
 export class PhotoModule { }
