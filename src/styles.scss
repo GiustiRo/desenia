@@ -1,23 +1,165 @@
-/* You can add global styles to this file, and also import other style files */
-@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 @import url('https://fonts.googleapis.com/css2?family=Stick+No+Bills:wght@200&display=swap');
-body{
-    min-height: 100vh;
-    background-color: rgb(201,180,173);
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;400&display=swap');
+@import '../node_modules/bootstrap/scss/functions';
+@import '../node_modules/bootstrap/scss/variables';
+
+// Previous theme config before importing bootstrap.
+
+:root {
+    --pri-color: #C0A687;
+    --sec-color: #B06C57;
+
+    --txt-color-a: black;
+    --txt-color-b: black;
+}
+
+$theme-colors: (
+    primary: #C0A687,
+    secondary: #B06C57
+);
+
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+
+// Here begins site css content.
+
+@font-face {
+    font-family: "Endensor";
+    src: local("Endenson Free"), url(./assets/fonts/edensor-free.otf) format("truetype");
+}
+
+body {
     // background-image: linear-gradient(45deg, #c9b4ad, white);
     // background-size: 5%;
+    min-height: 100vh;
+    background-color: var(--pri-color);
+    color: var(--txt-color);
+    font-family: 'Josefin Sans', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+    * {
+        transition: 0.3s;
+    }
+}
+
+.navigable {
+    background: linear-gradient(0deg, black, black) no-repeat 10rem 1.45em
+}
+
+.navigable:hover {
+    background: linear-gradient(0deg, black, black) no-repeat 0em 1.45em
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.pointer-sub {
+    * {
+        cursor: pointer;
+    }
+}
+
+main#main-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: rgb(45, 45, 45);
-    font-family: 'Stick No Bills', serif;
-    letter-spacing: 5px;
-    p{
-        font-weight: bold;
+    height: min(100vh - 6em, 100vh);
+
+    section {
+        margin-top: -8em;
+        font-family: 'Endensor', serif;
+
+        header {
+            position: relative;
+            background-color: var(--pri-color);
+            min-height: 8em;
+            z-index: 2;
+            transform: translateY(-2em);
+        }
+
+        div {
+            position: relative;
+            opacity: 0;
+        }
+        .fade-in{
+            animation: fade-in .5s 2s linear forwards;
+            opacity: 0;
+
+        }
+        img {
+            width: 10em;
+            position: relative;
+            z-index: -1;
+            animation: rotate infinite linear 30s;
+        }
+        .spiral-left{
+            float: left;
+            margin-right: 50px;
+            margin-top: -8.5em;
+
+        }
+        .spiral-right{
+            float: right;
+            margin-top: -4em;
+        }
+
+        div:first-of-type {
+            background-color: var(--pri-color);
+            z-index: 1;
+            animation: intro-title 1s ease forwards;
+
+            h1 {
+                font-size: 6em;
+                margin: 0px;
+                line-height: 0.7em;
+                margin-top: 40px;
+            }
+        }
+
+        div:last-of-type {
+            z-index: 0;
+            animation: intro-title-secondary .5s .8s ease forwards;
+        }
     }
-    * {
-        transition: 0.3s;
+}
+
+@keyframes intro-title {
+    0% {
+        opacity: 1;
+        transform: translateY(-8em);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0em);
+    }
+}
+
+@keyframes intro-title-secondary {
+    0% {
+        opacity: 1;
+        transform: translateY(-4em);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0em);
+    }
+}
+@keyframes fade-in {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes rotate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
     }
 }

@@ -11,11 +11,13 @@ import { environment } from '../environments/environment';
 import { reducers, metaReducers } from './store';
 import { PhotoModule } from './modules/photo/photo.module';
 import { InteriorModule } from './modules/interior/interior.module';
+import { NavComponent } from './components/nav/nav.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
