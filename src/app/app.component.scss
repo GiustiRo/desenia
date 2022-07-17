@@ -1,0 +1,103 @@
+div#split-screen {
+    display: flex;
+    height: 140vh;
+    width: 100%;
+}
+
+main.main-content:first-of-type {
+    align-items: flex-end;
+    box-shadow: 0 0 15px -5px black;
+
+    section {
+        margin-right: -45px;
+    }
+    header{
+        width: 10em;
+    }
+
+    div {
+        width: fit-content;
+    }
+}
+
+main.main-content:last-of-type {
+    align-items: flex-start;
+
+    header {
+        margin-top: 2em;
+    }
+}
+
+main.main-content {
+    background-color: var(--pri-color);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: min(100vh + 5px, 110vh);
+
+    section {
+        margin-top: -8em;
+        font-family: 'Endensor', serif;
+
+        header {
+            position: relative;
+            background-color: var(--pri-color);
+            min-height: 8em;
+            z-index: 2;
+            transform: translateY(-2em);
+
+        }
+
+        div {
+            position: relative;
+            opacity: 0;
+        }
+
+        .fade-in {
+            animation: fade-in .5s 2s linear forwards;
+            opacity: 0;
+
+        }
+
+        img {
+            width: 10em;
+            position: relative;
+            z-index: -1;
+            animation: rotate infinite linear 30s;
+        }
+
+        .spiral-left {
+            float: left;
+            margin-right: 50px;
+            margin-top: -8.5em;
+
+        }
+
+        .spiral-right {
+            float: right;
+            margin-top: -4em;
+            margin-right: -10px;
+        }
+
+        div:first-of-type {
+            background-color: var(--pri-color);
+            z-index: 1;
+            animation: intro-title 1s ease forwards;
+
+            h1 {
+                font-size: 6em;
+                margin: 0px;
+                line-height: 0.7em;
+                margin-top: 40px;
+            }
+        }
+
+        div:last-of-type {
+            z-index: 0;
+            animation: intro-title-secondary .5s .8s ease forwards;
+        }
+    }
+}
