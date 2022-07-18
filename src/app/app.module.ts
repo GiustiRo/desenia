@@ -12,11 +12,12 @@ import { reducers, metaReducers } from './store';
 import { PhotoModule } from './modules/photo/photo.module';
 import { InteriorModule } from './modules/interior/interior.module';
 import { NavComponent } from './components/nav/nav.component';
+import {UICarouselModule }from 'ng-carousel-iuno'
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent
+    NavComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +30,7 @@ import { NavComponent } from './components/nav/nav.component';
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     PhotoModule,
     InteriorModule,
-    
+    UICarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

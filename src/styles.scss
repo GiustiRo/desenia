@@ -2,12 +2,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;400&display=swap');
 @import '../node_modules/bootstrap/scss/functions';
 @import '../node_modules/bootstrap/scss/variables';
+@import url('https://fonts.googleapis.com/css2?family=Vidaloka&display=swap');
 
 // Previous theme config before importing bootstrap.
 
 :root {
     --pri-color: #C0A687;
-    --sec-color: #8B5848;
+    --sec-color: #B06C57;
+    --tri-color: #8B5848;
+    --cua-color: #60473B;
+    --qui-color: #281209;
 
     --txt-color-a: black;
     --txt-color-b: black;
@@ -15,7 +19,8 @@
 
 $theme-colors: (
     primary: #C0A687,
-    secondary: #8B5848
+    secondary: #B06C57,
+
 );
 
 @import '../node_modules/bootstrap/scss/bootstrap.scss';
@@ -27,7 +32,7 @@ $theme-colors: (
     src: local("Endenson Free"), url(./assets/fonts/edensor-free.otf) format("truetype");
 }
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
@@ -64,12 +69,26 @@ body {
 
 body::-webkit-scrollbar {
     display: none;
-  }
-  
+}
+
 body {
-    -ms-overflow-style: none; 
-    scrollbar-width: none; 
-  }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+
+// ### Carousel section
+.caro-title{
+    font-family: 'Vidaloka', serif;
+    text-align: left;
+    overflow-wrap: normal;
+    z-index: 1;
+    position: relative;
+    font-size: 4em;
+    width: 140%;
+    color: var(--qui-color);
+    // line-height: 60px;
+}
 
 @keyframes intro-title {
     0% {

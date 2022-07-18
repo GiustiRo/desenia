@@ -2,6 +2,9 @@ div#split-screen {
     display: flex;
     height: 140vh;
     width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 10;
 }
 
 main.main-content:first-of-type {
@@ -11,7 +14,8 @@ main.main-content:first-of-type {
     section {
         margin-right: -45px;
     }
-    header{
+
+    header {
         width: 10em;
     }
 
@@ -29,14 +33,18 @@ main.main-content:last-of-type {
 }
 
 main.main-content {
+    max-width: 50%;
+    width: 50%;
     background-color: var(--pri-color);
     flex-grow: 1;
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     height: min(100vh + 5px, 110vh);
+    position: relative;
+    z-index: 2000;
 
     section {
         margin-top: -8em;
@@ -96,8 +104,35 @@ main.main-content {
         }
 
         div:last-of-type {
+            margin-left: 2px;
             z-index: 0;
             animation: intro-title-secondary .5s .8s ease forwards;
+        }
+    }
+}
+
+
+
+// Back container & elements after scroll
+#beyond-desenia {
+    // background-color: blue;
+    min-height: 100vh;
+    margin-top: -100vh;
+    text-align: center;
+
+    #stick {
+        top: 0px;
+    }
+
+    .memo-content {
+        padding-left: 2em;
+        padding-right: 20px;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        button{
+            margin-right: 1em;
         }
     }
 }

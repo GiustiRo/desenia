@@ -1,7 +1,7 @@
 <!-- <nav>
   <app-nav></app-nav>
 </nav> -->
-<div id="split-screen">
+<!-- <div id="split-screen"> -->
   <main class="main-content">
     <section>
       <header>
@@ -33,6 +33,35 @@
       </div>
     </section>
   </main>
+<!-- </div> -->
+
+<div id="beyond-desenia">
+  <div id="stick" class="col-12 d-flex position-sticky justify-content-center">
+    <nav class="col-12 px-0">
+      <app-nav></app-nav>
+    </nav>
+  </div>
+  <div class="col-12 d-flex justify-content-center" id="keep-fixed">
+    <div class="col-5 bg-white memo-content">
+      <p class="pt-2 m-0">Diseño minimalista de materiales orgánicos.</p>
+      <h2 class="caro-title">
+        CABAÑA <i> LE PETIT BRISÉ,</i> DISEÑO ORGÁNICO
+      </h2>
+      <small class="text-muted m-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate odit voluptatibus, eius, numquam quasi ab eum sunt ea quo possimus dicta explicabo nihil at dignissimos sed repellat id quas. Officiis.</small>
+      <div class="pt-4 mt-4 col-12 d-flex">
+        <button class="btn btn-outline-secondary">PLANOS</button>
+        <button class="btn btn-outline-secondary">PRESUPUESTO</button>
+
+      </div>
+    </div>
+    <div class="col-5">
+      <ui-carousel [infinite]="false" [fade]="false" [speed]="0" [arrows]="true" [width]="''" [height]="'80vh'">
+        <ui-carousel-item *ngFor="let item of items">
+          <img [ui-lazy-load]="item.img" height="100%">
+        </ui-carousel-item>
+      </ui-carousel>
+    </div>
+  </div>
 </div>
 
 <!-- <h2>෴</h2> -->
