@@ -13,6 +13,7 @@ import { PhotoModule } from './modules/photo/photo.module';
 import { InteriorModule } from './modules/interior/interior.module';
 import { NavComponent } from './components/nav/nav.component';
 import {UICarouselModule }from 'ng-carousel-iuno'
+import { IconsModule } from './components/icons/icons.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {UICarouselModule }from 'ng-carousel-iuno'
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     PhotoModule,
     InteriorModule,
-    UICarouselModule
+    UICarouselModule,
+    IconsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
