@@ -66,9 +66,28 @@
     </div>
     <div class="col-4">
       <ui-carousel #uiCarousel [infinite]="false" [fade]="false" [speed]="0" [arrows]="false" [width]="''"
-        [height]="'80vh'">
+        [height]="'80vh'" *ngIf="lightMode">
         <ui-carousel-item *ngFor="let item of items">
-          <img [ui-lazy-load]="item.img" height="100%">
+          <img [ui-lazy-load]="item.img_light" height="100%">
+          <!-- <img [ui-lazy-load]="item.img_night" height="100%" *ngIf="!lightMode"> -->
+        </ui-carousel-item>
+        <div class="left-arrow" (click)="uiCarousel.prev()">
+          <!-- <img src="assets/arrow-left.png" alt=""> -->
+          <i-feather name="chevron-left" class="m-2 stroke-07 pointer"></i-feather>
+
+        </div>
+        <div class="right-arrow" (click)="uiCarousel.next()">
+          <!-- <img src="assets/arrow-right.png" alt=""> -->
+          <i-feather name="chevron-right" class="m-2 stroke-07 pointer"></i-feather>
+
+        </div>
+      </ui-carousel>
+
+      <ui-carousel #uiCarousel [infinite]="false" [fade]="false" [speed]="0" [arrows]="false" [width]="''"
+        [height]="'80vh'" *ngIf="!lightMode">
+        <ui-carousel-item *ngFor="let item of items">
+          <img [ui-lazy-load]="item.img_night" height="100%">
+          <!-- <img [ui-lazy-load]="item.img_night" height="100%" *ngIf="!lightMode"> -->
         </ui-carousel-item>
         <div class="left-arrow" (click)="uiCarousel.prev()">
           <!-- <img src="assets/arrow-left.png" alt=""> -->

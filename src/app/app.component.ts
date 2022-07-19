@@ -24,7 +24,8 @@ export class AppComponent implements OnInit, AfterViewInit {
   lightMode: boolean = true;
   items = [
     {
-      img: '../assets/img/interiores/cabaña/portada_t.jpg'
+      img_light: '../assets/img/interiores/cabaña/portada_light_t.jpg',
+      img_night: '../assets/img/interiores/cabaña/portada_night_t.jpg'
     }
   ]
 
@@ -49,7 +50,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.blurBackground.nativeElement.style.backgroundImage = `url(${this.items[0].img})`
+    this.blurBackground.nativeElement.style.backgroundImage = `url(${this.items[0].img_light})`
   }
 
   switchLightMode(): void {
