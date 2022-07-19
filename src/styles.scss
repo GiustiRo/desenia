@@ -2,20 +2,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;400&display=swap');
 @import '../node_modules/bootstrap/scss/functions';
 @import '../node_modules/bootstrap/scss/variables';
+@import url('https://fonts.googleapis.com/css2?family=Vidaloka&display=swap');
 
 // Previous theme config before importing bootstrap.
 
 :root {
     --pri-color: #C0A687;
-    --sec-color: #8B5848;
+    --sec-color: #B06C57;
+    --tri-color: #8B5848;
+    --cua-color: #60473B;
+    --qui-color: #191010;
 
     --txt-color-a: black;
-    --txt-color-b: black;
+    --white: white;
 }
 
 $theme-colors: (
     primary: #C0A687,
-    secondary: #8B5848
+    secondary: #B06C57,
+    success: #88a935,
 );
 
 @import '../node_modules/bootstrap/scss/bootstrap.scss';
@@ -27,7 +32,7 @@ $theme-colors: (
     src: local("Endenson Free"), url(./assets/fonts/edensor-free.otf) format("truetype");
 }
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
@@ -36,7 +41,7 @@ body {
     // background-size: 5%;
     min-height: 100vh;
     background-color: var(--sec-color);
-    color: var(--txt-color);
+    color: var(--txt-color-a);
     font-family: 'Josefin Sans', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     overflow-x: hidden;
     // * {
@@ -45,11 +50,11 @@ body {
 }
 
 .navigable {
-    background: linear-gradient(0deg, black, black) no-repeat 10rem 1.45em
+    background: linear-gradient(0deg, white, white) no-repeat 10rem 1.45em
 }
 
 .navigable:hover {
-    background: linear-gradient(0deg, black, black) no-repeat 0em 1.45em
+    background: linear-gradient(0deg, white, white) no-repeat 0em 1.45em
 }
 
 .pointer {
@@ -64,12 +69,39 @@ body {
 
 body::-webkit-scrollbar {
     display: none;
-  }
-  
+}
+
 body {
-    -ms-overflow-style: none; 
-    scrollbar-width: none; 
-  }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+
+// ### Carousel section
+.caro-title{
+    font-family: 'Vidaloka', serif;
+    text-align: left;
+    overflow-wrap: normal;
+    z-index: 1;
+    position: relative;
+    font-size: 4em;
+    width: 140%;
+    color: var(--qui-color);
+    // line-height: 60px;
+}
+
+i-feather{
+    color: var(--qui-color);
+}
+
+.stroke-07{
+    color: var(--qui-color) !important;
+    stroke-width: 0.7 !important;
+}
+
+:ng-deep .arrow::before{
+    height: 1px !important;
+}
 
 @keyframes intro-title {
     0% {
