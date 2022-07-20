@@ -14,11 +14,13 @@ import { InteriorModule } from './modules/interior/interior.module';
 import { NavComponent } from './components/nav/nav.component';
 import {UICarouselModule }from 'ng-carousel-iuno'
 import { IconsModule } from './components/icons/icons.module';
+import { ProjectCardComponent } from './components/project-card/project-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
+    ProjectCardComponent,
   ],
   imports: [
     BrowserModule,

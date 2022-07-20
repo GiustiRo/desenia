@@ -1,0 +1,67 @@
+<div id="blur-background" #blurBackground></div>
+<!-- Image Blur BG -->
+<div class="col-12 d-flex justify-content-center" id="keep-fixed">
+  <!-- Info Section -->
+    <div class="col-4 bg-light-mode memo-content" *ngIf="mainView == 0">
+      <div class="col-12">
+        <p class="pt-2 m-0">Diseño minimalista de materiales orgánicos.</p>
+        <h2 class="project-title">
+          CABAÑA <i> LE PETIT BRISÉ,</i> DISEÑO ORGÁNICO
+        </h2>
+        <small class="text-muted m-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate odit
+          voluptatibus, eius, numquam quasi ab eum sunt ea quo possimus dicta explicabo nihil at dignissimos sed
+          repellat
+          id quas. Officiis.</small>
+      </div>
+      <div class="col-12 d-flex">
+        <i-feather name="codepen" class="m-2 stroke-07 pointer" (click)="switchSection(1)"></i-feather>
+        <i-feather name="book-open" class="m-2 stroke-07 pointer" (click)="switchSection(2)"></i-feather>
+        <i-feather [name]="lightMode? 'moon' : 'sun'" class="m-2 stroke-07 pointer" (click)="switchLightMode()">
+        </i-feather>
+      </div>
+    </div>
+
+    <div class="col-4 bg-light-mode memo-content" *ngIf="mainView == 1">
+      <div class="col-12 text-center">
+        <h2 class="project-title">PLANOS 01.</h2>
+        <img src="../assets/img/interiores/cabaña/planos/planos_02.JPG" height="180px" alt="">
+        <img src="../assets/img/interiores/cabaña/planos/planos_01.jpg" width="100%" alt="">
+      </div>
+      <div class="col-12 d-flex">
+        <i-feather name="corner-up-left" class="m-2 stroke-07 pointer" (click)="switchSection(0)"></i-feather>
+      </div>
+    </div>
+    <div class="col-4 bg-light-mode memo-content" *ngIf="mainView == 2">
+      <div class="col-12">
+        <h2 class="project-title">ARTICULO 01.</h2>
+      </div>
+      <div class="col-12 d-flex">
+        <i-feather name="corner-up-left" class="m-2 stroke-07 pointer" (click)="switchSection(0)"></i-feather>
+      </div>
+    </div>
+
+    <!-- Pic Section -->
+    <div class="col-4">
+      <!-- Light Mode -->
+      <ui-carousel #uiCarousel [infinite]="true" [fade]="false" [speed]="1500" [arrows]="false" [width]="''"
+        [height]="'80vh'" [autoPlaySpeed]="5000" *ngIf="lightMode">
+          <ui-carousel-item *ngFor="let item of items.project_light">
+            <img [ui-lazy-load]="item.img" height="100%">
+          </ui-carousel-item>
+        <div class="left-arrow" (click)="uiCarousel.prev()">
+          <i-feather name="chevron-left" class="m-2 stroke-07 pointer"></i-feather>
+        </div>
+        <div class="right-arrow" (click)="uiCarousel.next()">
+          <i-feather name="chevron-right" class="m-2 stroke-07 pointer"></i-feather>
+        </div>
+      </ui-carousel>
+
+      <!-- Night Mode -->
+      <ui-carousel #uiCarousel [infinite]="false" [dots]="false" [fade]="false" [speed]="1500" [arrows]="false" [width]="''"
+        [height]="'80vh'" [autoPlaySpeed]="5000" *ngIf="!lightMode">
+        <ui-carousel-item *ngFor="let item of items.project_night">
+          <img [ui-lazy-load]="item.img" height="100%">
+        </ui-carousel-item>
+      </ui-carousel>
+    </div>
+  </div>
