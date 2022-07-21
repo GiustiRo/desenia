@@ -41,8 +41,8 @@ export class ProjectCardComponent implements OnInit, AfterViewInit {
     this.blurBackground.nativeElement.style.backgroundImage = `url(${this.items.project_light[0].img})`
   }
 
-  switchLightMode(): void {
-    this.lightMode = !this.lightMode;
+  switchLightMode(force?:boolean): void {
+    this.lightMode = force? force : !this.lightMode;
     if (this.lightMode) {
       this.blurBackground.nativeElement.style.filter = `grayscale(0.5) blur(20px) brightness(0.6)`
       document.documentElement.style.setProperty('--qui-color', '#191010');
@@ -56,9 +56,10 @@ export class ProjectCardComponent implements OnInit, AfterViewInit {
 
   switchSection(sectionEnum: sectionsEnum): void {
     this.mainView = sectionEnum;
+    this.switchLightMode(true)
     switch (sectionEnum) {
       case 0:
-        
+
         break;
       case 1:
         

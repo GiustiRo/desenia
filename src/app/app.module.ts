@@ -15,12 +15,14 @@ import { NavComponent } from './components/nav/nav.component';
 import {UICarouselModule }from 'ng-carousel-iuno'
 import { IconsModule } from './components/icons/icons.module';
 import { ProjectCardComponent } from './components/project-card/project-card.component';
+import { ThreeBoxComponent } from './components/three-box/three-box.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     ProjectCardComponent,
+    ThreeBoxComponent,
   ],
   imports: [
     BrowserModule,
