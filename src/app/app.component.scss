@@ -117,3 +117,17 @@ main.main-content {
     text-align: center;
 
 }
+
+
+.rollup{
+    animation: rollup-screen 1s forwards ease;
+}
+
+@keyframes rollup-screen {
+    0%{
+        transform: translateY(0vh);
+    }
+    100%{
+        transform: translateY(-150vh);
+    }
+}

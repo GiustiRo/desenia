@@ -71,6 +71,11 @@ body {
     scrollbar-width: none;
 }
 
+.stroke-07 {
+    color: var(--qui-color) !important;
+    stroke-width: 0.7 !important;
+}
+
 @keyframes intro-title {
     0% {
         opacity: 1;
