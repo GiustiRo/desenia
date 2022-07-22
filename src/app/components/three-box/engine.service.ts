@@ -148,6 +148,7 @@ export class EngineService implements OnDestroy {
                 })
             },
             (xhr) => { // progresses
+                // EMIT and show progress float
                 console.log((xhr.loaded / xhr.total * 100) + '% loaded');
             },
             (error) => { // error

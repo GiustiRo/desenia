@@ -9,6 +9,8 @@ type sectionsEnum = 0 | 1 | 2;
 export class ProjectCardComponent implements OnInit, AfterViewInit {
   lightMode: boolean = true;
   mainView: sectionsEnum = 0;
+  isSmallScreen: boolean = window.isSmallScreen;
+  toggleRenders: boolean = false; // Only for small screens.
   items =
     {
       project_light: [
@@ -34,8 +36,7 @@ export class ProjectCardComponent implements OnInit, AfterViewInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   ngAfterViewInit(): void {
     this.blurBackground.nativeElement.style.backgroundImage = `url(${this.items.project_light[0].img})`
@@ -72,6 +73,10 @@ export class ProjectCardComponent implements OnInit, AfterViewInit {
         break;
     }
 
+  }
+
+  toggleRendersView(): void{
+    this.toggleRenders = !this.toggleRenders;
   }
 
 }

@@ -1,4 +1,4 @@
-<div class="col-12 d-flex justify-content-between px-2 px-md-5 py-4">
+<div class="col-12 d-flex justify-content-between px-2 px-md-5 py-4" *ngIf="!isSmallScreen">
     <div class="pointer-sub">
         <div class="navigable d-inline-flex mx-3">
             Arquitectura
@@ -12,4 +12,8 @@
             Contacto
         </div>
     </div>
+</div>
+
+<div class="col-12 d-flex justify-content-end px-2 px-md-5 py-4" *ngIf="isSmallScreen">
+    <i-feather name="menu" class="stroke-07 pointer menu-mobile"></i-feather>
 </div>

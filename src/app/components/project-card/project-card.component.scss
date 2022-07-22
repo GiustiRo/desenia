@@ -1,6 +1,6 @@
 #blur-background {
     filter: grayscale(0.5) blur(20px) brightness(0.6);
-    width: 108vw;
+    width: 115vw;
     height: 110vh;
     position: fixed;
     margin-top: -7em;
@@ -73,11 +73,6 @@ i-feather {
     color: var(--qui-color);
 }
 
-.stroke-07 {
-    color: var(--qui-color) !important;
-    stroke-width: 0.7 !important;
-}
-
 :ng-deep .arrow::before {
     height: 1px !important;
 }
@@ -114,4 +109,49 @@ i-feather {
 .right-arrow:hover {
     cursor: pointer;
     opacity: 1;
+}
+
+@media (max-width: 600px) {
+    #blur-background {
+        height: 100vh !important;
+    }
+
+    #keep-fixed {
+        flex-direction: column;
+        align-items: center;
+
+        & > div {
+            width: 90% !important;
+            border-radius: 12px !important;
+            height: min(85vh - 3em, 85vh);
+            img , ui-carousel{
+                border-radius: 12px !important
+            }
+        }
+
+
+        // & div:first-of-type{
+        //     border-radius: 12px 12px 0px 0px;
+        // }
+        // // & div:last-of-type{
+        // //     border-radius: 0px 0px 12px 12px;
+        // // }
+        .project-title {
+            width: 100%;
+            font-size: 3em;
+        }
+
+        .memo-content {
+            padding-left: 20px !important;
+        }
+    }
+
+    .back-btn-mobile {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        border-radius: 0 0px 12px 0px;
+        background-color: var(--white);
+    }
 }
