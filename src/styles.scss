@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Stick+No+Bills:wght@200&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;400&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Stick+No+Bills:wght@200&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;400&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Vidaloka&display=swap');
 @import '../node_modules/bootstrap/scss/functions';
 @import '../node_modules/bootstrap/scss/variables';
-@import url('https://fonts.googleapis.com/css2?family=Vidaloka&display=swap');
 
 // Previous theme config before importing bootstrap.
 
@@ -38,7 +38,7 @@ html {
 
 body {
     min-height: 100vh;
-    background-color: var(--sec-color);
+    background-color: var(--qui-color);
     color: var(--txt-color-a);
     font-family: 'Josefin Sans', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     overflow-x: hidden;
@@ -74,6 +74,12 @@ body {
 .stroke-07 {
     color: var(--qui-color) !important;
     stroke-width: 0.7 !important;
+}
+
+@media (max-width: 600px) {
+    // body{
+    //     overflow: hidden;
+    // }
 }
 
 @keyframes intro-title {

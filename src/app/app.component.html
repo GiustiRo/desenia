@@ -1,43 +1,65 @@
-<main class="main-content" (click)="mobileEnterDesenia()" (drag)="mobileEnterDesenia()">
-  <section>
-    <header>
-    </header>
-    <div>
-      <h1>DES</h1>
-    </div>
-    <span class="fade-in">
-      <img class="spiral-left" src="../assets/img/spiral_t.png">
-    </span>
-    <div>
-      <p>by Martina Motta</p>
-    </div>
-  </section>
-</main>
+<div class="des-layer l1">
+  <main class="main-content" (click)="mobileEnterDesenia()" (drag)="mobileEnterDesenia()">
+    <section>
+      <header>
+      </header>
+      <div>
+        <h1>DES</h1>
+      </div>
+      <span class="fade-in">
+        <img class="spiral-left" src="../assets/img/spiral_t.png">
+      </span>
+      <div>
+        <p>by Martina Motta</p>
+      </div>
+    </section>
+  </main>
 
-<main class="main-content" (click)="mobileEnterDesenia()" (drag)="mobileEnterDesenia()">
-  <section>
-    <header>
-    </header>
-    <div>
-      <h1>ENIA</h1>
-    </div>
-    <span class="fade-in">
-      <img class="spiral-right" src="../assets/img/spiral_t.png">
-    </span>
-    <div>
-    </div>
-  </section>
-</main>
+  <main class="main-content" (click)="mobileEnterDesenia()" (drag)="mobileEnterDesenia()">
+    <section>
+      <header>
+      </header>
+      <div>
+        <h1>ENIA</h1>
+      </div>
+      <span class="fade-in">
+        <img class="spiral-right" src="../assets/img/spiral_t.png">
+      </span>
+      <div>
+      </div>
+    </section>
+  </main>
+</div>
+<div class="des-layer l2">
+  <main class="main-content"></main>
+  <main class="main-content"></main>
+</div>
+<div class="des-layer l3">
+  <main class="main-content"></main>
+  <main class="main-content"></main>
+</div>
+<div class="des-layer l4">
+  <main class="main-content"></main>
+  <main class="main-content"></main>
+</div>
+<div class="des-layer l5">
+  <main class="main-content"></main>
+  <main class="main-content"></main>
+</div>
 
-<div id="beyond-desenia">
-  <div id="stick" class="col-12 d-flex position-sticky justify-content-center">
-    <!-- Navbar -->
-    <nav class="col-12 px-0">
-      <app-nav></app-nav>
-    </nav>
-  </div>
-  <app-project-card></app-project-card>
-  <!-- Memo + Pics -->
+<div id="beyond-desenia" appDeferLoading (deferLoad)="entryViewport()">
+  <!-- <div id="keep-fixed"> -->
+
+    <div id="stick" class="col-12 d-flex position-sticky justify-content-center">
+      <!-- Navbar -->
+      <nav class="col-12 px-0">
+        <app-nav></app-nav>
+      </nav>
+    </div>
+    <router-outlet></router-outlet>
+    <!-- <app-project-card></app-project-card> -->
+    <!-- Memo + Pics -->
+  <!-- </div> -->
 </div>
 
 <!-- <h2>෴</h2> -->

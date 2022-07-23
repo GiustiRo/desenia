@@ -16,7 +16,7 @@
     }
 
     color: var(--qui-color);
-    margin-top: 5em;
+    margin-top: -5em;
 
     &>div {
         box-shadow: 0 0 15px -5px black;
@@ -55,6 +55,7 @@
     }
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Vidaloka&display=swap');
 
 // ### Carousel section
 .project-title {
@@ -64,7 +65,7 @@
     z-index: 1;
     position: relative;
     font-size: 4em;
-    width: 140%;
+    width: 150%;
     color: var(--qui-color);
     // line-height: 60px;
 }

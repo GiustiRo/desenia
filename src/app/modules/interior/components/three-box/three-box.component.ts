@@ -4,7 +4,8 @@ import { EngineService } from './engine.service';
 @Component({
   selector: 'app-three-box',
   templateUrl: './three-box.component.html',
-  styleUrls: ['./three-box.component.scss']
+  styleUrls: ['./three-box.component.scss'],
+  providers: [EngineService]
 })
 export class ThreeBoxComponent implements OnInit {
 

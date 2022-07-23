@@ -6,7 +6,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { Vector3 } from 'three';
 
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class EngineService implements OnDestroy {
     private canvas!: HTMLCanvasElement | null;
     private renderer!: THREE.WebGLRenderer | null;
@@ -16,6 +16,7 @@ export class EngineService implements OnDestroy {
     private controls!: OrbitControls
 
     private cube!: THREE.Mesh;
+    private myObj!: THREE.Object3D;
 
     private frameId: number | null = null;
 
@@ -56,13 +57,16 @@ export class EngineService implements OnDestroy {
         this.scene = new THREE.Scene();
 
         this.camera = new THREE.PerspectiveCamera(
-            75, this.width / this.height, 0.1, 1000
+            40, this.width / this.height, 0.1, 500
         );
-        this.controls = new OrbitControls( this.camera, this.renderer.domElement )
+        this.controls = new OrbitControls(this.camera, this.renderer.domElement);
+        // this.controls.addEventListener("change", () => this.renderer!.render(this.scene, this.camera));
+
 
         this.camera.position.z = 2;
         this.camera.position.y = 2;
         this.camera.position.x = 8;
+        // this.camera.position.set(0,0,3)
         this.scene.add(this.camera);
 
         this.controls.keys = {
@@ -107,12 +111,14 @@ export class EngineService implements OnDestroy {
 
     public render(): void {
         this.frameId = requestAnimationFrame(() => {
+            // this.controls.target.set(this.myObj.position.x, this.myObj.position.y, this.myObj.position.z);
             this.controls.update();
             this.render();
         });
 
         // this.cube.rotation.x += 0.01;
         this.cube.rotation.y += 0.01;
+        // this.myObj.rotation.y += 0.01;
         this.renderer!.render(this.scene, this.camera);
     }
 
@@ -132,15 +138,23 @@ export class EngineService implements OnDestroy {
             (object) => { // load success
                 this.scene.clear()
                 setTimeout(() => {
-                    // object.children[0].scale.copy(new Vector3(1, 1, 1));
-                    object.children[0].position.set(0,0,0);
                     let objId = object.children[0].id;
                     console.warn(objId);
-                    this.scene.add(object?.children[0]);
-                    // this.scene.getObjectById(objId)
+                    let newGroup = new THREE.Group()
+                    object.children?.forEach(child => {
+                        newGroup.add(child)
+                    })
+                    newGroup.position.set(0, 0, 0);
+                    this.myObj = newGroup;
+                    this.scene.add(this.myObj)
                     console.warn(this.scene.getObjectById(objId));
-                    this.camera.position.set(-5,1,1)
-                    this.camera.lookAt(new Vector3(this.scene.getObjectById(objId)?.position.x, this.scene.getObjectById(objId)?.position.y, this.scene.getObjectById(objId)?.position.z))
+                    this.camera.lookAt(this.myObj.getWorldPosition(this.myObj.position))
+                    this.camera.position.copy(this.myObj.position)
+                    this.camera.translateZ(-3)
+                    this.camera.translateX(-1)
+                    this.camera.translateY(1);
+                    // this.controls.target.copy(this.myObj.position);
+                    
 
                     // glTF conf:
                     // object.scene.children[0].scale.copy(new Vector3(8, 8, 8));
