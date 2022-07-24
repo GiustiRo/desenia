@@ -11,12 +11,14 @@ import { ProjectCardComponent } from './components/project-card/project-card.com
 import { ThreeBoxComponent } from './components/three-box/three-box.component';
 import { UICarouselModule } from 'ng-carousel-iuno';
 import { IconsModule } from '../../components/icons/icons.module';
+import { ProjectListComponent } from './components/project-list/project-list.component';
 
 
 @NgModule({
   declarations: [
     ProjectCardComponent,
-    ThreeBoxComponent
+    ThreeBoxComponent,
+    ProjectListComponent
   ],
   imports: [
     SharedModule,

@@ -1,4 +1,6 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Interior } from '../../store/models/interior.model';
+
 type sectionsEnum = 0 | 1 | 2;
 
 @Component({
@@ -7,30 +9,13 @@ type sectionsEnum = 0 | 1 | 2;
   styleUrls: ['./project-card.component.scss']
 })
 export class ProjectCardComponent implements OnInit, AfterViewInit {
+  @Input('item') item!: Interior;
+  @Input('number') number!: number;
   lightMode: boolean = true;
   mainView: sectionsEnum = 0;
   isSmallScreen: boolean = window.isSmallScreen;
   toggleRenders: boolean = false; // Only for small screens.
-  items =
-    {
-      project_light: [
-        {
-          img: '../assets/img/interiores/cabaña/portada_light_t.jpg',
-        },
-        {
-          img: '../assets/img/interiores/cabaña/02.jpg',
-        },
-        {
-          img: '../assets/img/interiores/cabaña/03.jpg',
-        }
-      ],
-      project_night: [
-        {
-          img: '../assets/img/interiores/cabaña/portada_night_t.jpg',
-        }
-      ],
-    }
-
+  reRenderSize: boolean = false;
 
   @ViewChild('blurBackground') blurBackground!: ElementRef<HTMLDivElement>;
 
@@ -39,13 +24,13 @@ export class ProjectCardComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {}
 
   ngAfterViewInit(): void {
-    this.blurBackground.nativeElement.style.backgroundImage = `url(${this.items.project_light[0].img})`
+    this.blurBackground.nativeElement.style.backgroundImage = `url(${this.item.images.day[0]})`
   }
 
   switchLightMode(force?:boolean): void {
     this.lightMode = force? force : !this.lightMode;
     if (this.lightMode) {
-      this.blurBackground.nativeElement.style.filter = `grayscale(0.5) blur(20px) brightness(0.6)`
+      this.blurBackground.nativeElement.style.filter = `grayscale(0.5) blur(20px) brightness(0.5)`
       document.documentElement.style.setProperty('--qui-color', '#191010');
       document.documentElement.style.setProperty('--white', 'white');
     } else {
@@ -77,6 +62,10 @@ export class ProjectCardComponent implements OnInit, AfterViewInit {
 
   toggleRendersView(): void{
     this.toggleRenders = !this.toggleRenders;
+    this.reRenderSize = true;
+    setTimeout(() => {
+      this.reRenderSize = false;
+    })
   }
 
 }

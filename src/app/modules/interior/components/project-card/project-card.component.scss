@@ -146,13 +146,12 @@ i-feather {
             padding-left: 20px !important;
         }
     }
-
-    .back-btn-mobile {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1;
-        border-radius: 0 0px 12px 0px;
-        background-color: var(--white);
-    }
+}
+.back-btn-mobile {
+    position: absolute;
+    // top: 0;
+    // left: 0;
+    z-index: 1;
+    border-radius: 0 0px 12px 0px;
+    background-color: var(--white);
 }

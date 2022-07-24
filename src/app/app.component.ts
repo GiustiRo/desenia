@@ -26,7 +26,9 @@ export class AppComponent {
   title = 'desenia-app';
   isSmallScreen: boolean = window.isSmallScreen;
   constructor(private store: Store<fromMain.State>, private fire: FireService, private route: Router) {
-    this.store.dispatch(fromPhotoActions.loadPhotos());
+    this.route.navigate(['/']);
+    window.scrollTo(0,0)
+    // this.store.dispatch(fromPhotoActions.loadPhotos());
     // this.store.dispatch(fromInteriorActions.loadInteriors());
     window['isSmallScreen'] = window.outerWidth < 600 ? true : false;
     this.isSmallScreen = window.isSmallScreen;

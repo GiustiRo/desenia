@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProjectCardComponent } from './components/project-card/project-card.component';
+import { ProjectListComponent } from './components/project-list/project-list.component';
 
 const routes: Routes = [
-  {path: '', component: ProjectCardComponent },
-  {path: '**', redirectTo: '', pathMatch: 'full'}
+  // {path: '', redirectTo: ':id',},
+  {path: '', component: ProjectListComponent },
+  // {path: '**', redirectTo: '', pathMatch: 'full'}
 ];
 
 @NgModule({

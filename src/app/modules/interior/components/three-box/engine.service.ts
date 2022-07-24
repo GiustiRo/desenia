@@ -76,7 +76,7 @@ export class EngineService implements OnDestroy {
             BOTTOM: 'ArrowDown' // down arrow
         }
         this.controls.enableZoom = true;
-        this.controls.enableRotate = true;
+        // this.controls.enableRotate = true;
         this.controls.update();
 
 
@@ -159,6 +159,7 @@ export class EngineService implements OnDestroy {
                     // glTF conf:
                     // object.scene.children[0].scale.copy(new Vector3(8, 8, 8));
                     // this.scene.add(object?.scene.children[0]);
+                    // this.render();
                 })
             },
             (xhr) => { // progresses

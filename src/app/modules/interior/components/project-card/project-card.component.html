@@ -2,16 +2,15 @@
 <!-- Image Blur BG -->
 <div class="col-12 d-flex justify-content-center" id="keep-fixed">
   <!-- Info Section -->
-  <div class="col-4 bg-light-mode memo-content" *ngIf="(mainView == 0 && !isSmallScreen) || (isSmallScreen && !toggleRenders && mainView == 0)">
+  <div class="col-4 bg-light-mode memo-content" [class.d-none]="toggleRenders && !isSmallScreen" *ngIf="(mainView == 0 && !isSmallScreen) || (isSmallScreen && !toggleRenders && mainView == 0)">
     <div class="col-12">
-      <p class="pt-2 m-0">Diseño minimalista de materiales orgánicos.</p>
+      <p class="pt-2 m-0">{{item?.shortDesc}}</p>
       <h2 class="project-title">
-        CABAÑA <i> LE PETIT BRISÉ,</i> DISEÑO ORGÁNICO
+        {{item?.title}}
       </h2>
-      <small class="text-muted m-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate odit
-        voluptatibus, eius, numquam quasi ab eum sunt ea quo possimus dicta explicabo nihil at dignissimos sed
-        repellat
-        id quas. Officiis.</small>
+      <small class="text-muted m-0">
+        {{item?.longDesc}}
+      </small>
     </div>
     <div class="col-12 d-flex justify-content-between">
       <div #leftIcons>
@@ -21,7 +20,7 @@
         </i-feather>
       </div>
       <div #rightIcons>
-        <i-feather *ngIf="isSmallScreen" [name]="!toggleRenders ? 'eye' : 'eye-off'"
+        <i-feather [name]="!toggleRenders ? 'eye' : 'eye-off'"
         class="m-2 stroke-07 pointer float-right" (click)="toggleRendersView()"></i-feather>
       </div>
     </div>
@@ -29,7 +28,7 @@
 
   <div class="col-4 bg-light-mode memo-content" *ngIf="mainView == 1">
     <div class="col-12 text-center">
-      <h2 class="project-title">PLANOS 01.</h2>
+      <h2 class="project-title">PLANOS {{number | number:'2.0'}}.</h2>
       <app-three-box class="m-2"></app-three-box>
     </div>
     <div class="col-12 d-flex">
@@ -38,7 +37,7 @@
   </div>
   <div class="col-4 bg-light-mode memo-content" *ngIf="mainView == 2">
     <div class="col-12">
-      <h2 class="project-title">ARTICULO 01.</h2>
+      <h2 class="project-title">ARTICULO {{number | number:'2.0'}}.</h2>
       <img src="../assets/img/interiores/cabaña/planos/planos_02.JPG" height="180px" alt="">
       <img src="../assets/img/interiores/cabaña/planos/planos_01.jpg" width="100%" alt="">
     </div>
@@ -48,15 +47,15 @@
   </div>
 
   <!-- Pic Section -->
-  <div class="col-4" *ngIf="!isSmallScreen || (isSmallScreen && toggleRenders)">
-    <div class="d-flex back-btn-mobile" *ngIf="(isSmallScreen && toggleRenders)">
-      <i-feather name="corner-up-left" class="m-2 stroke-07 pointer" (click)="toggleRendersView()"></i-feather>
+  <div class="col-4" [class.col-8]="toggleRenders && !isSmallScreen" *ngIf="(!isSmallScreen || (isSmallScreen && toggleRenders)) && !reRenderSize">
+    <div class="d-flex back-btn-mobile" *ngIf="(toggleRenders)">
+      <i-feather name="eye-off" class="m-2 stroke-07 pointer" (click)="toggleRendersView()"></i-feather>
     </div>
     <!-- Light Mode -->
-    <ui-carousel #uiCarousel [infinite]="true" [fade]="false" [speed]="1500" [arrows]="false" [width]="''"
+    <ui-carousel #uiCarousel [infinite]="true" [fade]="false" [speed]="1500" [arrows]="false" [width]="'100%'"
       [height]="'80vh'" [autoPlaySpeed]="5000" *ngIf="lightMode">
-      <ui-carousel-item *ngFor="let item of items.project_light">
-        <img [ui-lazy-load]="item.img" height="100%">
+      <ui-carousel-item *ngFor="let item of item?.images?.day">
+        <img [ui-lazy-load]="item" height="100%">
       </ui-carousel-item>
       <div class="left-arrow" (click)="uiCarousel.prev()">
         <i-feather name="chevron-left" class="m-2 stroke-07 pointer"></i-feather>
@@ -69,9 +68,28 @@
     <!-- Night Mode -->
     <ui-carousel #uiCarousel [infinite]="false" [dots]="false" [fade]="false" [speed]="1500" [arrows]="false"
       [width]="''" [height]="'80vh'" [autoPlaySpeed]="5000" *ngIf="!lightMode">
-      <ui-carousel-item *ngFor="let item of items.project_night">
-        <img [ui-lazy-load]="item.img" height="100%">
+      <ui-carousel-item *ngFor="let item of item?.images?.night">
+        <img [ui-lazy-load]="item" height="100%">
       </ui-carousel-item>
     </ui-carousel>
   </div>
+
+<!-- 
+  <div class="col-8" *ngIf="toggleRenders && !isSmallScreen">
+    <div class="d-flex back-btn-mobile" *ngIf="(isSmallScreen && toggleRenders)">
+      <i-feather name="corner-up-left" class="m-2 stroke-07 pointer" (click)="toggleRendersView()"></i-feather>
+    </div>
+    <ui-carousel #uiCarousel [infinite]="true" [fade]="false" [speed]="1500" [arrows]="false" [width]="'100%'"
+      [height]="'80vh'" [autoPlaySpeed]="5000" *ngIf="lightMode">
+      <ui-carousel-item *ngFor="let item of item?.images?.day">
+        <img [ui-lazy-load]="item" height="100%">
+      </ui-carousel-item>
+      <div class="left-arrow" (click)="uiCarousel.prev()">
+        <i-feather name="chevron-left" class="m-2 stroke-07 pointer"></i-feather>
+      </div>
+      <div class="right-arrow" (click)="uiCarousel.next()">
+        <i-feather name="chevron-right" class="m-2 stroke-07 pointer"></i-feather>
+      </div>
+    </ui-carousel>
+  </div> -->
 </div>
