@@ -12,17 +12,13 @@ import { reducers, metaReducers } from './store';
 import { PhotoModule } from './modules/photo/photo.module';
 import { InteriorModule } from './modules/interior/interior.module';
 import { NavComponent } from './components/nav/nav.component';
-import {UICarouselModule }from 'ng-carousel-iuno'
-import { IconsModule } from './components/icons/icons.module';
-import { ProjectCardComponent } from './components/project-card/project-card.component';
-import { ThreeBoxComponent } from './components/three-box/three-box.component';
+import { SharedModule } from './modules/shared/shared.module';
+// import { IconsModule } from './components/icons/icons.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    ProjectCardComponent,
-    ThreeBoxComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,9 +30,9 @@ import { ThreeBoxComponent } from './components/three-box/three-box.component';
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     PhotoModule,
-    InteriorModule,
-    UICarouselModule,
-    IconsModule
+    // InteriorModule,
+    // IconsModule
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

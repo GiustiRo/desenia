@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;400&display=swap');
+
 * {
     transition: 0.3s;
 }
 :host{
-    color: var(--qui-color);
+    color: var(--white);
 }
 .menu-mobile{
     stroke-width: 3px !important;

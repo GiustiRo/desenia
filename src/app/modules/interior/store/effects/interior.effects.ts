@@ -4,6 +4,8 @@ import { catchError, map, concatMap } from 'rxjs/operators';
 import { Observable, EMPTY, of } from 'rxjs';
 import * as InteriorActions from '../actions/interior.actions';
 import { HttpClient } from '@angular/common/http';
+import { FireService } from 'src/app/services/fire.service';
+import { Interior } from '../models/interior.model';
 
 
 @Injectable()
@@ -14,14 +16,22 @@ export class InteriorEffects {
 
       ofType(InteriorActions.loadInteriors),
       concatMap(() =>
-        /** An EMPTY observable only emits completion. Replace with your own observable API request */
-        this.http.get('https://api.imgflip.com/get_memes').pipe(
-          map((data: any) => InteriorActions.loadedInteriors({ interiors: data?.data?.memes })),
+      this.fire.getCloudFirestore('interior').pipe(
+        map((data:any[]) => {
+          console.warn(data);
+          let interiorsToStore: Interior[] = [];
+          data?.forEach(interior => interiorsToStore.push({
+            id: interior.id,
+            ...interior.data()
+          }))
+          console.warn(interiorsToStore);
+          return InteriorActions.loadedInteriors({ interiors: [...interiorsToStore] })
+        }),
           catchError(error => of( error )))
       )
     );
   });
 
 
-  constructor(private actions$: Actions, private http: HttpClient) {}
+  constructor(private actions$: Actions, private http: HttpClient, private fire: FireService) {}
 }
