@@ -42,13 +42,12 @@ export class ProjectCardComponent implements OnInit, AfterViewInit {
 
   switchSection(sectionEnum: sectionsEnum): void {
     this.mainView = sectionEnum;
-    this.switchLightMode(true)
     switch (sectionEnum) {
       case 0:
 
         break;
       case 1:
-        
+      this.switchLightMode(true)
         break;
       case 2:
         

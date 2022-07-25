@@ -1,5 +1,8 @@
 .des-layer {
-    position: relative;
+    // position: absolute;
+    // top: 0;
+    // width: 100%;
+    position: relative
 }
 
 .des-layer.l1 {
@@ -10,36 +13,40 @@
     z-index: 1999;
     transform: translateY(-102vh);
 
-    main {
-        background-color: var(--sec-color) !important;
-    }
+    background-color: var(--sec-color) !important;
+    // main {
+    //     background-color: var(--sec-color) !important;
+    // }
 }
 
 .des-layer.l3 {
     z-index: 1998;
     transform: translateY(-204vh);
 
-    main {
-        background-color: var(--tri-color) !important;
-    }
+    background-color: var(--tri-color) !important;
+    // main {
+    //     background-color: var(--tri-color) !important;
+    // }
 }
 
 .des-layer.l4 {
     z-index: 1997;
     transform: translateY(-307vh);
 
-    main {
-        background-color: var(--cua-color) !important;
-    }
+    background-color: var(--cua-color) !important;
+    // main {
+    //     background-color: var(--cua-color) !important;
+    // }
 }
 
 .des-layer.l5 {
     z-index: 1996;
     transform: translateY(-409vh);
+    background-color: #413028 !important;
 
-    main {
-        background-color: #413028 !important;
-    }
+    // main {
+    //     background-color: #413028 !important;
+    // }
 }
 
 main.main-content:first-of-type {
@@ -59,7 +66,7 @@ main.main-content:first-of-type {
     }
 }
 
-main.main-content:last-of-type {
+main.main-content:nth-child(2n) {
     align-items: flex-start;
 
     header {

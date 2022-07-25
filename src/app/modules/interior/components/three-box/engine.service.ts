@@ -142,6 +142,7 @@ export class EngineService implements OnDestroy {
                     console.warn(objId);
                     let newGroup = new THREE.Group()
                     object.children?.forEach(child => {
+                        // child.material // OPACITY=????
                         newGroup.add(child)
                     })
                     newGroup.position.set(0, 0, 0);

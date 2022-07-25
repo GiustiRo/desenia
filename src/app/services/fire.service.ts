@@ -15,7 +15,7 @@ export class FireService {
   fCloudStorage!: Firestore
   constructor() {
     console.warn('fire...');
-    this.getCloudFirestore('photo');
+    // this.getCloudFirestore('photo');
   }
 
   getCloudFirestore(docName:string): Observable<any> {

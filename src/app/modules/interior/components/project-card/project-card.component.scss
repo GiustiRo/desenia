@@ -7,6 +7,7 @@
     margin-left: -3em;
     background-repeat: no-repeat;
     background-size: cover;
+    // mix-blend-mode: color-dodge;
     // transition: 0.3s;
 }
 
@@ -28,17 +29,18 @@
     }
 
     &>div:last-of-type {
-        border-radius: 0 12px 12px 0;
+        border-radius: var(--border-radius);
 
-        * {
-            border-radius: 0 12px 12px 0;
+        img, ui-carousel {
+            border-radius: inherit;
         }
     }
 
-    .bg-light-mode {
+    .bg-mode {
         background-color: var(--white);
     }
 }
+
 
 .memo-content {
     padding-left: 2em;
@@ -76,6 +78,9 @@ i-feather {
 
 :ng-deep .arrow::before {
     height: 1px !important;
+}
+::ng-deep .ui-carousel-item{
+    background: var(--pri-color) !important;
 }
 
 .left-arrow,
@@ -154,4 +159,14 @@ i-feather {
     z-index: 1;
     border-radius: 0 0px 12px 0px;
     background-color: var(--white);
+}
+.wrap-images{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.invert-pics{
+    img{
+        filter: invert(1);
+    }
 }
