@@ -4,9 +4,6 @@
 }
 
 .des-layer {
-    // position: absolute;
-    // top: 0;
-    // width: 100%;
     position: fixed !important;
     top: 0;
 }
@@ -17,51 +14,27 @@
 
 .des-layer.l2 {
     z-index: 1999;
-    // transform: translateY(-102vh);
-
     background-color: var(--sec-color) !important;
-    // main {
-    //     background-color: var(--sec-color) !important;
-    // }
 }
 
 .des-layer.l3 {
     z-index: 1998;
-    // transform: translateY(-204vh);
-
     background-color: var(--tri-color) !important;
-    // main {
-    //     background-color: var(--tri-color) !important;
-    // }
 }
 
 .des-layer.l4 {
     z-index: 1997;
-    // transform: translateY(-307vh);
-
     background-color: var(--cua-color) !important;
-    // main {
-    //     background-color: var(--cua-color) !important;
-    // }
 }
 
 .des-layer.l5 {
     z-index: 1996;
-    // transform: translateY(-409vh);
     background-color: #413028 !important;
-
-    // main {
-    //     background-color: #413028 !important;
-    // }
 }
 
 main.main-content:first-of-type {
     align-items: flex-end;
     box-shadow: 0 0 15px -5px black;
-
-    section {
-        // margin-right: -45px;
-    }
 
     header {
         width: 10em;
@@ -82,15 +55,13 @@ main.main-content:nth-child(2n) {
 
     div {
         h1 {
-            margin-bottom: 47px;
+            // margin-bottom: 47px;
 
         }
     }
 }
 
 main.main-content {
-    // overflow-y: auto;
-    // height: 300vh;
     transition: 0.3s;
     min-height: 101vh;
     max-width: 50%;
@@ -102,13 +73,10 @@ main.main-content {
     justify-content: center;
     align-items: center;
     text-align: center;
-    // height: min(100vh + 10px, 120vh);
     position: relative;
     z-index: 2000;
-    // overflow: scroll;
 
     section {
-        // margin-top: -8em;
         font-family: 'Endensor', serif;
 
 
@@ -124,10 +92,6 @@ main.main-content {
         div {
             position: relative;
             overflow: hidden;
-
-            h1 {
-                // margin-top: -40px;
-            }
         }
 
         .fade-in {
@@ -160,21 +124,21 @@ main.main-content {
             background-color: var(--pri-color);
             z-index: 1;
 
-
         }
 
         div:last-of-type {
+            position: absolute;
             margin-left: 2px;
             z-index: 0;
-            animation: intro-title-secondary .5s .8s ease forwards;
+            margin-top: -30px;
+            opacity: 0;
+            animation: intro-title .5s .8s ease forwards;
         }
 
         h1 {
             font-size: 6em;
-            // margin: 0px;
             line-height: 0.7em;
             animation: intro-title 1s ease forwards;
-            // margin-top: 40px;
         }
     }
 }
@@ -185,24 +149,26 @@ main.main-content {
     top: 0px;
     left: 0;
     width: 100%;
-    // transform: translateY(-310vh);
-    #stick {
-        top: 0px;
-        z-index: 1;
-    }
-    #stick-content{
-        top: 12em;
-        position: inherit;
-    }
-
-    nav {
-        position: inherit;
-        top: 0;
-    }
-
     min-height: 100vh;
-    // margin-top: -400vh;
     text-align: center;
+
+    #stick-nav {
+        bottom: 0px;
+        z-index: 1;
+
+        nav {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+        }
+    }
+
+    #stick-content {
+        // top: 12em;
+        position: inherit;
+        height: calc(100vh - 5em);
+        align-items: center;
+    }
 
 }
 
@@ -225,60 +191,5 @@ main.main-content {
 
     100% {
         transform: translateY(-150vh);
-    }
-}
-
-.square-desenia {
-    border: 5px solid;
-    border-color: var(--white);
-    // border-radius: 12px;
-    // width: 24em;
-    // height: 24em;
-    color: var(--white);
-    justify-content: center;
-    // font-size: 8em;
-    letter-spacing: 20px;
-    padding: 1em;
-    // padding-block: 25px;
-    h2{
-        font-size: 7em;
-        margin: 0;
-    }
-    h2#hde{
-        padding-top: 20px;
-    }
-    h2#hsenia{
-        padding-left: 10px;
-        margin-top: -10px;
-        letter-spacing: 16px;
-    }
-}
-
-.circles{
-    // margin-top: -3em;
-    margin-left: -7em;
-    filter: invert(1);
-    img{
-        position: absolute;
-        width: 200px;
-    }
-    img:first-of-type{
-        animation: infinite-spin 7s linear infinite;
-    }
-    img:last-of-type{
-        animation: infinite-spin 7s linear infinite reverse;
-    }
-    img:hover{
-        filter: drop-shadow(0 0 10px black);
-        cursor:pointer
-    }
-}
-
-@keyframes infinite-spin {
-    0%{
-        transform: rotate(0deg);
-    }
-    100%{
-        transform: rotate(360deg);
     }
 }

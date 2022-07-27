@@ -31,6 +31,14 @@ $theme-colors: (
     font-family: "Endensor";
     src: local("Endenson Free"), url(./assets/fonts/edensor-free.otf) format("truetype");
 }
+@font-face {
+    font-family: "Waves Club";
+    src: local("Tejeros Waves Club"), url(./assets/fonts/waves-club.ttf) format("truetype");
+}
+// @font-face {
+//     font-family: "Endensor";
+//     src: local("Endenson Free"), url(./assets/fonts/edensor-free.otf) format("truetype");
+// }
 
 html {
     scroll-behavior: smooth;
@@ -78,10 +86,6 @@ body {
     stroke-width: 0.7 !important;
 }
 
-.de-font{
-    font-family: 'Endensor', serif;
-}
-
 @media (max-width: 600px) {
     // body{
     //     overflow: hidden;
@@ -91,26 +95,12 @@ body {
 @keyframes intro-title {
     0% {
         opacity: 1;
-        // transform: translateY(-8em);
-        margin-top: -8em;
+        margin-top: -6em;
     }
 
     100% {
         opacity: 1;
-        // transform: translateY(0em);
         margin-top: .5em;
-    }
-}
-
-@keyframes intro-title-secondary {
-    0% {
-        opacity: 1;
-        transform: translateY(-4em);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0em);
     }
 }
 

@@ -4,8 +4,8 @@
     <div>
       <h1>DES</h1>
     </div>
-    <span class="fade-in">
-    </span>
+    <!-- <span class="fade-in">
+    </span> -->
     <div>
       <p>by Martina Motta</p>
     </div>
@@ -18,9 +18,9 @@
     <div>
       <h1>ENIA</h1>
     </div>
-    <span class="fade-in">
-      <!-- <img class="spiral-right" src="../assets/img/spiral_t.png"> -->
-    </span>
+    <!-- <span class="fade-in">
+      <img class="spiral-right" src="../assets/img/spiral_t.png">
+    </span> -->
     <div>
     </div>
   </section>
@@ -36,35 +36,17 @@
 
 <div id="beyond-desenia" appDeferLoading (deferLoad)="entryViewport()">
   <!-- Navbar -->
-  <div id="stick" class="col-12 d-flex position-sticky justify-content-center">
+  <div id="stick-nav" class="col-12 d-flex position-sticky justify-content-center">
     <nav class="col-12 px-0">
       <app-nav></app-nav>
     </nav>
   </div>
   <div id="stick-content" class="w-100 d-flex justify-content-center flex-row">
-    <div class="square-desenia d-flex flex-column">
-
-      <div class="col-12">
-        <div class="row">
-
-          <div class="de-font col-4 p-0" style="writing-mode: vertical-lr;">
-            <h2 id="hde">DE</h2>
-          </div>
-          <div class="circles col-8 p-0" (click)="toggleShowContent()">
-            <img src="../assets/img/circles/c1.png" alt="">
-            <img src="../assets/img/circles/c2.png" alt="">
-          </div>
-        </div>
-      </div>
-      <div class="col-12 de-font p-0">
-        <h2 id="hsenia">SENIA</h2>
-      </div>
-    </div>
+    <app-desenia-frames></app-desenia-frames>
   </div>
-  <div id="stick-content" *ngIf="showContent">
+  <!-- <div id="stick-content">
     <router-outlet></router-outlet>
-
-  </div>
+  </div> -->
 </div>
 
 <!-- <h2>෴</h2> -->

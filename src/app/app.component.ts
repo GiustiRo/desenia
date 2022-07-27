@@ -26,7 +26,6 @@ export class AppComponent {
   title = 'desenia-app';
   isSmallScreen: boolean = window.isSmallScreen;
   virtualScroll: number = 0;
-  showContent = false;
   constructor(private store: Store<fromMain.State>, private fire: FireService, private route: Router) {
     this.route.navigate(['/']);
     window.scrollTo(0, 0)
@@ -35,7 +34,6 @@ export class AppComponent {
     window['isSmallScreen'] = window.outerWidth < 600 ? true : false;
     this.isSmallScreen = window.isSmallScreen;
     if (!this.isSmallScreen) document.addEventListener('scroll', this.splitScreen);
-    this.showContent = false
   }
 
   scrollAll(event:any): void {
@@ -143,9 +141,5 @@ export class AppComponent {
       }, 800)
 
     }
-  }
-
-  toggleShowContent(): void{
-    this.showContent = true;
   }
 }

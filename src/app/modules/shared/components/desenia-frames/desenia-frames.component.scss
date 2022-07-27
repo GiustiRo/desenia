@@ -1,0 +1,141 @@
+// GENERIC
+.square-desenia {
+    border-color: var(--white);
+    color: var(--white);
+    justify-content: center;
+    padding: 1em;
+    background: none;
+
+    h2 {
+        letter-spacing: 20px;
+        font-size: 6em;
+        margin: 0;
+    }
+
+    .circles {
+        filter: invert(1);
+
+        img {
+            position: absolute;
+            transition: 0.3s;
+            width: 180px;
+        }
+
+        img:first-of-type {
+            animation: infinite-spin 7s linear infinite;
+        }
+
+        img:last-of-type {
+            animation: infinite-spin 7s linear infinite reverse;
+        }
+
+        img:hover {
+            filter: drop-shadow(0 0 10px black);
+            cursor: pointer;
+        }
+    }
+}
+
+// STYLE 1
+#desenia-a {
+    &.square-desenia {
+        border: 14px solid;
+        border-style: groove;
+        background: linear-gradient(240deg, #20537a78, transparent);
+        background-size: 50px;
+        padding-inline: 40px;
+    }
+
+    h2 {
+        font-size: 8em;
+        font-family: 'Waves Club', serif;
+
+        &#hde {
+            margin-left: -18px;
+            padding-top: 40px;
+            letter-spacing: 30px;
+        }
+
+        &#hsenia {
+            padding-left: 10px;
+            margin-top: -20px;
+            letter-spacing: 16px;
+        }
+    }
+
+    .circles {
+        margin-left: -5em;
+        margin-top: 0.7em;
+    }
+}
+
+// STYLE 2
+#desenia-b {
+    &.square-desenia {
+        // background: repeating-linear-gradient(45deg, #b06c571f, transparent 52px);
+        // background: repeating-linear-gradient(0deg, #b06c571f, transparent 100%);
+        // background-position: 0em 12em;
+        background: repeating-linear-gradient(0deg, #c0a687, transparent 380%);
+        background-position: 0em 12em;
+        // border: 3px solid;
+        padding: 1.3em;
+        padding-inline: 1.8em;
+    }
+
+    h2 {
+        font-size: 6em;
+        font-family: 'Endensor', serif;
+
+        &#hde {
+            padding-top: 20px;
+        }
+
+        &#hsenia {
+            padding-left: 10px;
+            // margin-top: -20px;
+            letter-spacing: 16px;
+        }
+    }
+
+    .circles {
+        margin-left: -5.5em;
+    }
+}
+
+// STYLE 3
+#desenia-c {
+    &.square-desenia {
+        border: 2px solid;
+
+        h2 {
+            font-size: 6em;
+            font-family: 'Josefin Sans', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: 100;
+
+            &#hde {
+                padding-top: 20px;
+            }
+
+            &#hsenia {
+                padding-left: 10px;
+                // margin-top: -20px;
+                letter-spacing: 10px;
+            }
+        }
+
+        .circles {
+            margin-left: -6em;
+            margin-top: 1em;
+        }
+    }
+}
+
+@keyframes infinite-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

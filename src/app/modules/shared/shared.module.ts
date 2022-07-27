@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http'
 import { IconsModule } from 'src/app/components/icons/icons.module';
 import { DeferLoadingDirective } from './directives/defer-loading.directive';
+import { DeseniaFramesComponent } from './components/desenia-frames/desenia-frames.component';
 
 
 
 @NgModule({
   declarations: [
-    DeferLoadingDirective
+    DeferLoadingDirective,
+    DeseniaFramesComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,8 @@ import { DeferLoadingDirective } from './directives/defer-loading.directive';
   exports: [
     HttpClientModule,
     IconsModule,
-    DeferLoadingDirective
+    DeferLoadingDirective,
+    DeseniaFramesComponent
   ]
 })
 export class SharedModule { }
