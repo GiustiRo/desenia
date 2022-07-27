@@ -1,8 +1,14 @@
+#everything {
+    overflow: auto;
+    height: 300vh;
+}
+
 .des-layer {
     // position: absolute;
     // top: 0;
     // width: 100%;
-    position: relative
+    position: fixed !important;
+    top: 0;
 }
 
 .des-layer.l1 {
@@ -11,7 +17,7 @@
 
 .des-layer.l2 {
     z-index: 1999;
-    transform: translateY(-102vh);
+    // transform: translateY(-102vh);
 
     background-color: var(--sec-color) !important;
     // main {
@@ -21,7 +27,7 @@
 
 .des-layer.l3 {
     z-index: 1998;
-    transform: translateY(-204vh);
+    // transform: translateY(-204vh);
 
     background-color: var(--tri-color) !important;
     // main {
@@ -31,7 +37,7 @@
 
 .des-layer.l4 {
     z-index: 1997;
-    transform: translateY(-307vh);
+    // transform: translateY(-307vh);
 
     background-color: var(--cua-color) !important;
     // main {
@@ -41,7 +47,7 @@
 
 .des-layer.l5 {
     z-index: 1996;
-    transform: translateY(-409vh);
+    // transform: translateY(-409vh);
     background-color: #413028 !important;
 
     // main {
@@ -54,7 +60,7 @@ main.main-content:first-of-type {
     box-shadow: 0 0 15px -5px black;
 
     section {
-        margin-right: -45px;
+        // margin-right: -45px;
     }
 
     header {
@@ -68,13 +74,25 @@ main.main-content:first-of-type {
 
 main.main-content:nth-child(2n) {
     align-items: flex-start;
+    right: 0;
 
     header {
         margin-top: 2em;
     }
+
+    div {
+        h1 {
+            margin-bottom: 47px;
+
+        }
+    }
 }
 
 main.main-content {
+    // overflow-y: auto;
+    // height: 300vh;
+    transition: 0.3s;
+    min-height: 101vh;
     max-width: 50%;
     width: 50%;
     background-color: var(--pri-color);
@@ -84,13 +102,15 @@ main.main-content {
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: min(100vh + 10px, 120vh);
+    // height: min(100vh + 10px, 120vh);
     position: relative;
     z-index: 2000;
+    // overflow: scroll;
 
     section {
-        margin-top: -8em;
+        // margin-top: -8em;
         font-family: 'Endensor', serif;
+
 
         header {
             position: relative;
@@ -103,7 +123,11 @@ main.main-content {
 
         div {
             position: relative;
-            opacity: 0;
+            overflow: hidden;
+
+            h1 {
+                // margin-top: -40px;
+            }
         }
 
         .fade-in {
@@ -121,8 +145,8 @@ main.main-content {
 
         .spiral-left {
             float: left;
-            margin-right: 50px;
-            margin-top: -8.5em;
+            // margin-right: 50px;
+            // margin-top: -8.5em;
 
         }
 
@@ -135,14 +159,8 @@ main.main-content {
         div:first-of-type {
             background-color: var(--pri-color);
             z-index: 1;
-            animation: intro-title 1s ease forwards;
 
-            h1 {
-                font-size: 6em;
-                margin: 0px;
-                line-height: 0.7em;
-                margin-top: 40px;
-            }
+
         }
 
         div:last-of-type {
@@ -150,25 +168,40 @@ main.main-content {
             z-index: 0;
             animation: intro-title-secondary .5s .8s ease forwards;
         }
+
+        h1 {
+            font-size: 6em;
+            // margin: 0px;
+            line-height: 0.7em;
+            animation: intro-title 1s ease forwards;
+            // margin-top: 40px;
+        }
     }
 }
 
 // Back container & elements after scroll
 #beyond-desenia {
-
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100%;
     // transform: translateY(-310vh);
     #stick {
         top: 0px;
         z-index: 1;
     }
+    #stick-content{
+        top: 12em;
+        position: inherit;
+    }
 
     nav {
-        position: sticky;
+        position: inherit;
         top: 0;
     }
 
     min-height: 100vh;
-    margin-top: -400vh;
+    // margin-top: -400vh;
     text-align: center;
 
 }
@@ -176,7 +209,7 @@ main.main-content {
 @media (max-width: 600px) {
     #beyond-desenia {
         min-height: unset;
-        margin-top: -500vh;
+        // margin-top: -500vh;
     }
 }
 
@@ -192,5 +225,60 @@ main.main-content {
 
     100% {
         transform: translateY(-150vh);
+    }
+}
+
+.square-desenia {
+    border: 5px solid;
+    border-color: var(--white);
+    // border-radius: 12px;
+    // width: 24em;
+    // height: 24em;
+    color: var(--white);
+    justify-content: center;
+    // font-size: 8em;
+    letter-spacing: 20px;
+    padding: 1em;
+    // padding-block: 25px;
+    h2{
+        font-size: 7em;
+        margin: 0;
+    }
+    h2#hde{
+        padding-top: 20px;
+    }
+    h2#hsenia{
+        padding-left: 10px;
+        margin-top: -10px;
+        letter-spacing: 16px;
+    }
+}
+
+.circles{
+    // margin-top: -3em;
+    margin-left: -7em;
+    filter: invert(1);
+    img{
+        position: absolute;
+        width: 200px;
+    }
+    img:first-of-type{
+        animation: infinite-spin 7s linear infinite;
+    }
+    img:last-of-type{
+        animation: infinite-spin 7s linear infinite reverse;
+    }
+    img:hover{
+        filter: drop-shadow(0 0 10px black);
+        cursor:pointer
+    }
+}
+
+@keyframes infinite-spin {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
     }
 }

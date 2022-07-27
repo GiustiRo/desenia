@@ -34,6 +34,8 @@ $theme-colors: (
 
 html {
     scroll-behavior: smooth;
+    height: 300vh;
+    min-height: 100vh;
 }
 
 body {
@@ -76,6 +78,10 @@ body {
     stroke-width: 0.7 !important;
 }
 
+.de-font{
+    font-family: 'Endensor', serif;
+}
+
 @media (max-width: 600px) {
     // body{
     //     overflow: hidden;
@@ -85,12 +91,14 @@ body {
 @keyframes intro-title {
     0% {
         opacity: 1;
-        transform: translateY(-8em);
+        // transform: translateY(-8em);
+        margin-top: -8em;
     }
 
     100% {
         opacity: 1;
-        transform: translateY(0em);
+        // transform: translateY(0em);
+        margin-top: .5em;
     }
 }
 
