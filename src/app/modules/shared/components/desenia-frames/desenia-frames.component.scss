@@ -18,7 +18,7 @@
         svg {
             // fill: white;
             stroke: white;
-            stroke-dasharray: 3540;
+            stroke-dasharray: 4000;
             stroke-width: 13px;
             stroke-dashoffset: 0;
             // stroke-dasharray: 5854px;
@@ -30,6 +30,9 @@
             position: absolute;
             transition: 0.3s;
             width: 150px;
+            path, *{
+                transition: 1s;
+            }
         }
 
         img:first-of-type,
@@ -156,16 +159,17 @@
 }
 
 #nav-to-left {
-    left: 60.1em;
+    left: 67em;
     position: absolute;
     width: 3000px;
-    top: 6.5em;
+    top: 22em;
 
     svg {
         path {
             stroke-width: 1.5px;
             stroke-dashoffset: 3350px;
             stroke-dasharray: 3539px;
+            transition: 1s;
         }
     }
 }
