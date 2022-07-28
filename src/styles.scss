@@ -40,6 +40,9 @@ $theme-colors: (
 //     src: local("Endenson Free"), url(./assets/fonts/edensor-free.otf) format("truetype");
 // }
 
+html *{
+    scroll-behavior: smooth;
+}
 html {
     scroll-behavior: smooth;
     height: 300vh;
@@ -72,11 +75,11 @@ body {
     }
 }
 
-body::-webkit-scrollbar {
+body::-webkit-scrollbar, #stick-content::-webkit-scrollbar {
     display: none;
 }
 
-body {
+body, #stick-content {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
