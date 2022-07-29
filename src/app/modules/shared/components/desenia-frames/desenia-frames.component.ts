@@ -26,6 +26,7 @@ export class DeseniaFramesComponent implements OnInit {
   }
 
   async hzScroll(event: Event): Promise<void | boolean> {
+    
     let thresholdValue = 1400;
     // if(window.scrollY < thresholdValue / 1.2){
     //   return
@@ -42,42 +43,40 @@ export class DeseniaFramesComponent implements OnInit {
     }
     var scrollAmount = scrollDirection ? (st - this.lastScrollTop) : (this.lastScrollTop - st);
     this.lastScrollTop = st <= 0 ? 0 : st;
-    console.warn(scrollAmount);
-    console.warn(st);
-    console.warn(st - thresholdValue);
-    console.warn(window.scrollY);
-    
-    
+
     // hz smooth
     let smoothScroll = (target: any, duration: any, reset: boolean) => {
-      console.warn('hello');
 
       var target: any = document.querySelector(target);
-      var targetPosition = reset ? -target.getBoundingClientRect().width : !scrollDirection ? -scrollAmount*2 : scrollAmount*2; // sets scroll direction.
+      var targetPosition = reset ? -target.getBoundingClientRect().width : (!scrollDirection ? -scrollAmount : scrollAmount) * 2; // sets scroll direction.
       var startPosition = target.scrollLeft;
-      var distance = targetPosition;
       var startTime: any = null;
 
       let animation = (currentTime: any) => {
         if (startTime === null) startTime = currentTime;
         var timeElapsed = currentTime - startTime;
-        var run = ease(timeElapsed, startPosition, distance, duration);
-        console.warn('world');
+        console.warn('dis::: ', st-thresholdValue, scrollAmount, timeElapsed);
         
-        return new Promise(r => setTimeout(target.scrollTo(st - thresholdValue, 0), duration));        
-        // requestAnimationFrame(animation);
-        // target.scrollTo(run, 0);
-        // if (timeElapsed < duration) requestAnimationFrame(animation);
+        if(scrollAmount < 100/*touchpad tolerance*/){
+          // cancelAnimationFrame(timeElapsed);
+          return new Promise(r => setTimeout(target.scrollTo(st-thresholdValue, 0),duration));
+        }else{
+          cancelAnimationFrame(timeElapsed);
+          return new Promise(r => setTimeout(() => {
+            cancelAnimationFrame(0);
+            // if (timeElapsed < duration) requestAnimationFrame(animation);
+            if (timeElapsed < duration) requestAnimationFrame(animation);
+            var run = ease(timeElapsed, startPosition, targetPosition, duration*1.2);
+            target.scrollTo(run, 0);
+          }))
+
+        }
+
+        // smooth scroll with visual 'cuts' conflicts:
+      // })
       }
 
-      // http://www.gizma.com/easing/
-      let ease = (t: any, b: any, c: any, d: any) => {
-        t /= d / 2;
-        if (t < 1) return c / 2 * t * t * t * t + b;
-        t -= 2;
-        return -c / 2 * (t * t * t * t - 2) + b;
-      }
-
+      let ease = (t: any, b: any, c: any, d: any) => { t /= d; return -c * t * (t - 2) + b; }; // http://www.gizma.com/easing/
       return new Promise(r => setTimeout(() => requestAnimationFrame(animation)));
     }
 
@@ -99,8 +98,8 @@ export class DeseniaFramesComponent implements OnInit {
     // TRIGGER SCROLL
     if (window.scrollY > thresholdValue) {
       calcStrokeMove();
-      await smoothScroll('#stick-content', 300, false);
-    } else if((window.scrollY < (thresholdValue - thresholdValue/1.5)) && !scrollDirection) {
+      await smoothScroll('#stick-content', 200, false);
+    } else if ((window.scrollY < (thresholdValue / 1.5)) && !scrollDirection) {
       calcStrokeMove(true);
       await smoothScroll('#stick-content', 500, true)
     }
