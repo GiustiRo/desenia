@@ -1,10 +1,32 @@
+// .scrollable {
+//     height: 200vh;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     overflow: auto;
+//     position: fixed;
+//     top: -50vh;
+//     transition: 0.3s;
+// .square-desenia {
+// margin-block: 100vh;
+// }
+// }
+.scrollable {
+    transition: 0.3s;
+}
+
 // GENERIC
 .square-desenia {
+    // margin-block: 100vh;
+    // height: 200vh;
+    overflow: auto;
     border-color: var(--white);
     color: var(--white);
     justify-content: center;
     padding: 1em;
     background: none;
+    transition: 0.3s;
+
 
     h2 {
         letter-spacing: 20px;
@@ -13,6 +35,13 @@
     }
 
     .circles {
+        margin-left: -0.3em;
+        margin-top: 5px;
+        margin-right: -100px;
+
+        // margin-left: -1em;
+        // margin-top: 15px;
+        // margin-right: -30px;
 
         // filter: invert(1);
         svg {
@@ -27,10 +56,12 @@
 
         img,
         svg {
-            position: absolute;
+            // position: absolute;
             transition: 0.3s;
             width: 150px;
-            path, *{
+
+            path,
+            * {
                 transition: 1s;
             }
         }
@@ -44,6 +75,7 @@
         svg:last-of-type {
             animation: infinite-spin 7s linear infinite reverse;
             margin-top: 5px;
+            margin-top: -11em;
         }
 
         img:hover,
@@ -82,8 +114,9 @@
     }
 
     .circles {
-        margin-left: -5em;
-        margin-top: 0.7em;
+        // margin-left: -1em;
+        // margin-top: 15px;
+        // margin-right: -30px;
     }
 }
 
@@ -116,7 +149,7 @@
     }
 
     .circles {
-        margin-left: -5.5em;
+        // margin-left: -5.5em;
     }
 }
 
@@ -142,8 +175,8 @@
         }
 
         .circles {
-            margin-left: -6em;
-            margin-top: 1em;
+            // margin-left: -6em;
+            // margin-top: 1em;
         }
     }
 }
@@ -173,41 +206,48 @@
         }
     }
 }
-.anim-cursiva{
-    svg{
-        path{
+
+.anim-cursiva {
+    svg {
+        path {
             animation: anim-cursiva ease-in-out forwards 4s;
         }
     }
 }
-.anim-ashes{
-        path{
-            animation: anim-ashes ease-out forwards 1.5s;
-        }
+
+.anim-ashes {
+    path {
+        animation: anim-ashes ease-out forwards 1.5s;
+    }
 }
+
 @keyframes anim-ashes {
-    0%{
+    0% {
         stroke-dashoffset: 0;
 
     }
-    100%{
+
+    100% {
         stroke-dashoffset: 3710;
     }
 }
+
 @keyframes anim-cursiva {
-    0%{
+    0% {
         stroke-dashoffset: 5220px;
         // stroke-dasharray: 1650px;
     }
-    20%{
+
+    20% {
         stroke-dashoffset: 5500px;
         // stroke-dasharray: 1650px;
     }
+
     // 80%{
     //     stroke-dashoffset: 7000px;
     //     // stroke-dasharray: 1650px;
     // }
-    100%{
+    100% {
         stroke-dashoffset: 7500px;
         // stroke-dasharray: 1650px; 
     }
