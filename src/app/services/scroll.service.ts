@@ -18,7 +18,7 @@ export class ScrollService {
   }
 
   splitScreen(event: Event): void | boolean {
-    console.warn(window.scrollY);
+    // console.warn(window.scrollY);
     let split = document.getElementsByClassName('main-content');
     let multiply = 2;
     let lvl = 5;

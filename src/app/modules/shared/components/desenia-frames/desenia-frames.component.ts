@@ -26,26 +26,23 @@ export class DeseniaFramesComponent implements OnInit {
   }
 
   hzScroll(event: Event): void | boolean {
+    let thresholdValue = 1400;
     // get scroll direction.
     var scrollDirection = true;
     var st = window.pageYOffset || document.documentElement.scrollTop;
     if (st > this.lastScrollTop) {
-      console.warn('down');
+      // console.warn('down');
       scrollDirection = true;
     } else {
-      console.warn('up');
+      // console.warn('up');
       scrollDirection = false;
     }
     var scrollAmount = scrollDirection ? (st - this.lastScrollTop) : (this.lastScrollTop - st);
     this.lastScrollTop = st <= 0 ? 0 : st;
-
-    console.warn('amount::::::', scrollAmount);
-
-
     // hz smooth
     let smoothScroll = (target: any, duration: any, reset: boolean) => {
       var target: any = document.querySelector(target);
-      var targetPosition = reset ? -target.getBoundingClientRect().width : !scrollDirection ? -scrollAmount : scrollAmount; // sets scroll direction.
+      var targetPosition = reset ? -target.getBoundingClientRect().width : !scrollDirection ? -scrollAmount*2 : scrollAmount*2; // sets scroll direction.
       var startPosition = target.scrollLeft;
       var distance = targetPosition;
       var startTime: any = null;
@@ -69,29 +66,27 @@ export class DeseniaFramesComponent implements OnInit {
     }
 
     let calcStrokeMove = (reset?: boolean) => {
-      let multipy = 5;
-      var calcAshes = window.scrollY - 1500;
+      let multipy = 8;
+      var calcAshes = window.scrollY - thresholdValue;
       console.warn('ashes::::', calcAshes);
       document.querySelectorAll('.path-ashes').forEach((el) => {
         if (reset) {
-          (el as SVGPathElement).style.strokeDasharray = '5000';
+          (el as SVGPathElement).style.strokeDasharray = '3000';
           return
         }
         (el as SVGPathElement).style.strokeDashoffset = `${calcAshes * multipy}px`;
-        (el as SVGPathElement).style.strokeDasharray = `${calcAshes * multipy < 3000 ? 3000 : calcAshes * multipy}px`;
+        (el as SVGPathElement).style.strokeDasharray = `${calcAshes * multipy < 2800 ? 2800 : calcAshes * multipy}px`;
       });
-      (document.querySelector('#draw-path') as SVGPathElement).style.strokeDashoffset = `${calcAshes + 5000}`;
+      (document.querySelector('#draw-path') as SVGPathElement).style.strokeDashoffset = `${(calcAshes * 2.2) + 5000}`;
       // (document.querySelector('#draw-path') as SVGPathElement).style.strokeDashoffset = `${calcAshes * multipy < 5000? 5000 : calcAshes * multipy}`;
     }
 
     // TRIGGER SCROLL
-    if (window.scrollY > 1500) {
-      console.warn('scroll left!');
-      cancelAnimationFrame(300);
+    if (window.scrollY > thresholdValue) {
+      // cancelAnimationFrame(300);
       smoothScroll('#stick-content', 300, false);
-
       calcStrokeMove();
-    } else {
+    } else if(window.scrollY < thresholdValue - thresholdValue/1.5) {
       smoothScroll('#stick-content', 500, true)
       calcStrokeMove(true);
 
