@@ -19,7 +19,6 @@ export class ScrollService {
 
   splitScreen(event: Event): void | boolean {
     let thresholdValue = 1400;
-    // console.warn(window.scrollY);
     if(window.scrollY > thresholdValue * 1.5){
       return
     }
@@ -90,10 +89,5 @@ export class ScrollService {
         }
       }
     }
-    // let keep = document.getElementById('keep-fixed');
-    // keep && ((keep as HTMLElement).style.transform = `translateY(${Math.ceil(window.scrollY)}px)`);
-    // let beyond = document.getElementById('beyond-desenia');
-    // beyond && ((beyond as HTMLElement).style.marginTop = '-500vh');
-    // beyond && ((beyond as HTMLElement).style.transform = `translateY(${Math.ceil(window.scrollY)}px)`);
   }
 }
