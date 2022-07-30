@@ -29,7 +29,7 @@ export class DeseniaFramesComponent implements OnInit {
     let calcStrokeMove = (reset?: boolean) => {
       let multipy = 6;
       let calcAshes = window.scrollY - thresholdValue;
-      console.warn('ashes::::', calcAshes);
+      // console.warn('ashes::::', calcAshes);
       document.querySelectorAll('.path-ashes').forEach((el) => {
         if (reset) {
           (el as SVGPathElement).style.strokeDasharray = '3000';
@@ -44,10 +44,15 @@ export class DeseniaFramesComponent implements OnInit {
     // TRIGGER SCROLL
     if (window.scrollY > thresholdValue) {
       calcStrokeMove();
-      let sc = document.getElementsByClassName('square-desenia');
-      for (let i = 0; i < sc.length; i++) {
-        (sc[i] as HTMLDivElement).style.transform = `translateX(-${Math.ceil(window.scrollY - thresholdValue)}px)`;
-      }
+      (document.querySelector('#d-frame-scroll') as HTMLDivElement).style.transform = `translateX(-${Math.ceil(window.scrollY - thresholdValue)}px)`;
+    }else{
+      calcStrokeMove(true);
+      (document.querySelector('#d-frame-scroll') as HTMLDivElement).style.transform = `translateX(0px)`;
     }
+  }
+
+  entryViewport(): void{
+    console.warn('box...');
+    
   }
 }

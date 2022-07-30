@@ -10,6 +10,8 @@ export class ScrollService {
 
   splitScreen(event: Event): void | boolean {
     let thresholdValue = 1400;
+    console.warn('w.y: ', window.scrollY);
+    
     if(window.scrollY > thresholdValue * 1.5){
       return
     }
