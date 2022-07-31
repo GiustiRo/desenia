@@ -35,6 +35,10 @@ $theme-colors: (
     font-family: "Waves Club";
     src: local("Tejeros Waves Club"), url(./assets/fonts/waves-club.ttf) format("truetype");
 }
+@font-face {
+    font-family: "Supertall";
+    src: local("Supertall"), url(./assets/fonts/supertalls.ttf) format("truetype");
+}
 // @font-face {
 //     font-family: "Endensor";
 //     src: local("Endenson Free"), url(./assets/fonts/edensor-free.otf) format("truetype");
