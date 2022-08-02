@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ScrollService } from 'src/app/services/scroll.service';
 
 
@@ -8,9 +8,9 @@ import { ScrollService } from 'src/app/services/scroll.service';
   styleUrls: ['./desenia-frames.component.scss']
 })
 export class DeseniaFramesComponent implements OnInit {
-  showContent: boolean = false;
   stylesList: string[] = ['a', 'b', 'c'];
   pickStyle!: string;
+  @Output('selectedArticle') selectedArticle: EventEmitter<any> = new EventEmitter();
 
   indexBoxes: any[] = [];
 
@@ -76,8 +76,10 @@ export class DeseniaFramesComponent implements OnInit {
     }
   }
 
-  entryViewport(): void{
-    console.warn('box...');
-    
+
+  selectArticle(event:any,box:any): void {
+    (event?.target as HTMLDivElement).classList.add('clip-animation-box');
+    console.warn('box:::', box);
+    this.selectedArticle.emit(box);
   }
 }

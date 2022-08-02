@@ -223,6 +223,7 @@
                 box-shadow: -50px 0px 0px 10px white inset;
                 background-color: var(--qui-color);
                 background-size: contain !important;
+                clip-path: circle(50% at 50% 50%);
             }
 
             &:hover {
@@ -231,6 +232,7 @@
                     box-shadow: -5px 0px 0px 0px white inset;
                     filter: drop-shadow(0px 0px 6px black);
                     margin-top: 10px !important;
+
                 }
 
                 .timeline-title {
@@ -268,5 +270,27 @@
                 transition: 1s;
             }
         }
+    }
+}
+
+
+
+
+
+// TRANSITION TO ARTICLES
+.clip-animation-box {
+    animation: .5s clip-animation forwards ease-in-out;
+}
+
+@keyframes clip-animation {
+    0% {
+        // clip-path: circle(50% at 50% 50%);
+        transform: translateY(0px);
+    }
+
+    100% {
+        // clip-path: circle(50% at 200% 50%);
+        transform: translateY(300px);
+
     }
 }

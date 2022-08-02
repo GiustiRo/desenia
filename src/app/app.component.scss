@@ -147,6 +147,10 @@ main.main-content {
     min-height: 100vh;
     text-align: center;
 
+    background-color: var(--qui-color);
+    color: var(--white);
+    clip-path: circle(100% at 50% 0%);
+
     #stick-nav {
         bottom: 0px;
         z-index: 1;
@@ -166,6 +170,14 @@ main.main-content {
         overflow: auto;
     }
 
+}
+#stick-articles{
+    position: fixed;
+    top: 10em;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    text-align: center;
 }
 
 @media (max-width: 600px) {
@@ -188,4 +200,22 @@ main.main-content {
     100% {
         transform: translateY(-150vh);
     }
+}
+
+.clip-animation {
+    // animation-delay: 2s;
+    animation: 1.2s .5s switch-clip-animation cubic-bezier(0.05, -0.01, 0.33, 0.89) forwards;
+}
+@keyframes switch-clip-animation {
+    0% {
+        clip-path: circle(100% at 50% 0%);
+
+    }
+
+    100% {
+        // clip-path: circle(300% at 50% 600%);
+        // clip-path: circle(500% at 50% 930%);
+        clip-path: circle(1000% at 50% -1700%);
+    }
+
 }

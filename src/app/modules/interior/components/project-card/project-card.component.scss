@@ -7,11 +7,16 @@
     margin-left: -3em;
     background-repeat: no-repeat;
     background-size: cover;
+    animation: fade-in-bg .5s ease-in-out forwards;
+    opacity: 0;
     // mix-blend-mode: color-dodge;
     // transition: 0.3s;
 }
 
 #keep-fixed {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: .5s 1s fade-in-article forwards ease-out;
     * {
         transition: 0.2s;
     }
@@ -168,5 +173,25 @@ i-feather {
 .invert-pics{
     img{
         filter: invert(1);
+    }
+}
+
+@keyframes fade-in-bg {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in-article {
+    0%{
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
     }
 }

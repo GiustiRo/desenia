@@ -1,5 +1,5 @@
 <div id="d-frame-scroll" class="scrollable d-flex align-items-center">
-    <div class="square-desenia d-flex flex-column" [id]="'desenia-'+pickStyle">
+    <div class="square-desenia d-flex flex-column melt-enter-active" [id]="'desenia-'+pickStyle">
         <div class="col-12">
             <div class="row">
                 <div class="de-font col-4 p-0" style="writing-mode: vertical-lr;">
@@ -41,7 +41,7 @@
         <div></div>
         <div id="de-timeline">
             <!-- timeline index -->
-            <div class="timeline-box" *ngFor="let box of indexBoxes">
+            <div class="timeline-box" *ngFor="let box of indexBoxes" (click)="selectArticle($event, box)">
                 <div class="timeline-title">
                     <span>
                         {{box.title | uppercase}}
