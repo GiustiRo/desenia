@@ -41,14 +41,14 @@
         <div></div>
         <div id="de-timeline">
             <!-- timeline index -->
-            <div class="timeline-box" *ngFor="let box of indexBoxes" (click)="selectArticle($event, box)">
+            <div class="timeline-box" *ngFor="let box of indexBoxes" (click)="selectArticle(item, box)">
                 <div class="timeline-title">
                     <span>
                         {{box.title | uppercase}}
                     </span>
                     <small>{{box.shortDesc}}</small>
                 </div>
-                <div class="timeline-item pointer" [style.background]="'url(' + box.materialUrl + ')'"></div>
+                <div class="timeline-item pointer" #item [style.background]="'url(' + box.materialUrl + ')'"></div>
             </div>
         </div>
         <div id="de-svg-bg">

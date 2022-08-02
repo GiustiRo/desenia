@@ -15,8 +15,8 @@
 
 #keep-fixed {
     opacity: 0;
-    transform: translateY(40px);
-    animation: .5s 1s fade-in-article forwards ease-out;
+    transform: translateY(30px);
+    animation: 1s 1s fade-in-article forwards ease;
     * {
         transition: 0.2s;
     }
@@ -185,13 +185,13 @@ i-feather {
     }
 }
 
-@keyframes fade-in-article {
-    0%{
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    100%{
-        opacity: 1;
-        transform: translateY(0px);
-    }
-}
+// @keyframes fade-in-article {
+//     0%{
+//         opacity: 0;
+//         transform: translateY(30px);
+//     }
+//     100%{
+//         opacity: 1;
+//         transform: translateY(0px);
+//     }
+// }

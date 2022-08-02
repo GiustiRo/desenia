@@ -30,7 +30,7 @@ export class AppComponent {
   showArticles: boolean = false;
   constructor(private store: Store<fromMain.State>, private fire: FireService, private route: Router, private scrollSv: ScrollService) {
     this.route.navigate(['/']);
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
     // this.store.dispatch(fromPhotoActions.loadPhotos());
     // this.store.dispatch(fromInteriorActions.loadInteriors());
     window['isSmallScreen'] = window.outerWidth < 600 ? true : false;
@@ -44,7 +44,7 @@ export class AppComponent {
     // this.route.navigate(['/interior']) // Set beginning module to display 
   }
 
-  
+
 
   mobileEnterDesenia(): void {
     // if (this.isSmallScreen) {
@@ -65,14 +65,34 @@ export class AppComponent {
     // }
   }
 
-  goToArticle(article:any): void {
+  goToArticle(article: any): void {
     this.showArticles = true;
     (document.querySelector('#beyond-desenia') as HTMLDialogElement).classList.add('clip-animation');
     setTimeout(() => {
+      (document.querySelector('#close-article') as HTMLDialogElement).classList.add('fade-in-article');
       console.warn('mostrar ahora...');
       console.warn(article);
-    this.route.navigate(['/interior']) // Set beginning module to display 
-    },2000)
-    
+      this.route.navigate(['/interior']); // Set beginning module to display
+      setTimeout(() => {
+
+        (document.querySelector('#beyond-desenia') as HTMLDialogElement).classList.remove('clip-animation');
+      },3000);
+    }, 1000)
+  }
+
+  backToFrames(): void {
+    (document.querySelector('#close-article') as HTMLDialogElement).classList.add('fade-out-article');
+    window.scroll({
+      top: 1450,
+      behavior: 'auto'
+    });
+    setTimeout(() => {
+      (document.querySelector('#stick-articles') as HTMLDialogElement).classList.add('clip-animation-rev');
+      setTimeout(() => {
+        (document.querySelector('#stick-articles') as HTMLDialogElement).classList.remove('clip-animation-rev');
+        this.route.navigate(['/']); // Set beginning module to display
+        this.showArticles = false;
+      }, 3000)
+    }, 250);
   }
 }

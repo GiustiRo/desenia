@@ -25,14 +25,15 @@
 <main class="main-content des-layer l4"></main>
 <main class="main-content des-layer l5"></main>
 <main class="main-content des-layer l5"></main>
+<div id="stick-nav" class="col-12 d-flex position-sticky justify-content-center">
+  <nav class="col-12 px-0">
+    <app-nav></app-nav>
+  </nav>
+</div>
 
 <div id="beyond-desenia" appDeferLoading (deferLoad)="entryViewport()">
   <!-- Navbar -->
-  <div id="stick-nav" class="col-12 d-flex position-sticky justify-content-center">
-    <nav class="col-12 px-0">
-      <app-nav></app-nav>
-    </nav>
-  </div>
+  
   <div id="stick-content" class="w-100 d-flex">
     <app-desenia-frames class="d-flex" style="margin-left: calc(50% - 191px);" (selectedArticle)="goToArticle($event)"></app-desenia-frames>
   </div>
@@ -42,6 +43,9 @@
 </div>
 
 <div id="stick-articles" *ngIf="showArticles">
+  <div id="close-article" (click)="backToFrames()">
+    <i-feather name="X" class="m-2 stroke-07 pointer"></i-feather>
+  </div>
   <router-outlet></router-outlet> 
 </div> 
 

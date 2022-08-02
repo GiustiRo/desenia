@@ -9,11 +9,8 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { reducers, metaReducers } from './store';
-import { PhotoModule } from './modules/photo/photo.module';
-import { InteriorModule } from './modules/interior/interior.module';
 import { NavComponent } from './components/nav/nav.component';
 import { SharedModule } from './modules/shared/shared.module';
-// import { IconsModule } from './components/icons/icons.module';
 
 @NgModule({
   declarations: [
@@ -29,9 +26,6 @@ import { SharedModule } from './modules/shared/shared.module';
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    PhotoModule,
-    // InteriorModule,
-    // IconsModule
     SharedModule
   ],
   providers: [],

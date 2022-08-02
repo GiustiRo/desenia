@@ -171,13 +171,42 @@ main.main-content {
     }
 
 }
-#stick-articles{
+
+#stick-articles {
     position: fixed;
     top: 10em;
     left: 0;
     width: 100%;
     min-height: 100vh;
     text-align: center;
+    clip-path: circle(100% at 50% 0%);
+    transition: 0.3s;
+    #close-article{
+        position: inherit;
+        left: 2em;
+        top: 2em;
+        z-index: 1;
+        border-radius: 100%;
+        background-color: white;
+        // animation: 1s 1.5s fade-in-article forwards ease;
+        opacity: 0;
+        i-feather{
+            transform: rotate(0deg);
+            transition: 0.3s;
+        }
+        &:hover{
+            i-feather {
+                transform: rotate(90deg);
+            }
+        }
+    }
+}
+
+.fade-in-article{
+    animation: 1s .5s fade-in-article forwards ease;  
+}
+.fade-out-article{
+    animation: 1s fade-out-article forwards ease !important;  
 }
 
 @media (max-width: 600px) {
@@ -203,19 +232,32 @@ main.main-content {
 }
 
 .clip-animation {
-    // animation-delay: 2s;
     animation: 1.2s .5s switch-clip-animation cubic-bezier(0.05, -0.01, 0.33, 0.89) forwards;
 }
+
+.clip-animation-rev {
+    animation: 1.2s switch-clip-animation-rev cubic-bezier(0.05, -0.01, 0.33, 0.89) forwards;
+}
+
 @keyframes switch-clip-animation {
     0% {
         clip-path: circle(100% at 50% 0%);
-
     }
 
     100% {
         // clip-path: circle(300% at 50% 600%);
         // clip-path: circle(500% at 50% 930%);
         clip-path: circle(1000% at 50% -1700%);
+    }
+
+}
+@keyframes switch-clip-animation-rev {
+    0% {
+        clip-path: circle(100% at 50% 0%);
+    }
+    
+    100% {
+        clip-path: circle(1000% at 50% 1750%);
     }
 
 }

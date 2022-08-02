@@ -78,8 +78,13 @@ export class DeseniaFramesComponent implements OnInit {
 
 
   selectArticle(event:any,box:any): void {
-    (event?.target as HTMLDivElement).classList.add('clip-animation-box');
+    console.warn(event);
+    
+    (event as HTMLDivElement).classList.add('clip-animation-box');
     console.warn('box:::', box);
     this.selectedArticle.emit(box);
+    setTimeout(() => {
+    (event as HTMLDivElement).classList.remove('clip-animation-box');
+    },1000)
   }
 }
