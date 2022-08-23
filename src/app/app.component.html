@@ -1,5 +1,4 @@
-<main class="main-content des-layer l1" (click)="mobileEnterDesenia()" (drag)="mobileEnterDesenia()"
-  (scroll)="scrollAll($event)">
+<main class="main-content des-layer l1" (click)="mobileEnterDesenia()">
   <section>
     <div>
       <h1>DES</h1>
@@ -9,8 +8,7 @@
     </div>
   </section>
 </main>
-<main class="main-content des-layer l1" (click)="mobileEnterDesenia()" (drag)="mobileEnterDesenia()"
-  (scroll)="scrollAll($event)">
+<main class="main-content des-layer l1" (click)="mobileEnterDesenia()">
   <section>
     <div>
       <h1>ENIA</h1>
@@ -30,17 +28,22 @@
 
 <div id="beyond-desenia" appDeferLoading (deferLoad)="entryViewport()">
   <!-- Navbar -->
-  <div id="stick-nav" class="col-12 d-flex position-sticky justify-content-center">
+  <!-- <div id="stick-nav" class="col-12 d-flex position-sticky justify-content-center">
     <nav class="col-12 px-0">
-      <app-nav></app-nav>
+       <app-nav></app-nav> 
     </nav>
-  </div>
-  <div id="stick-content" class="w-100 d-flex">
-    <app-desenia-frames class="d-flex" style="margin-left: calc(50% - 191px);"></app-desenia-frames>
-  </div>
+  </div> -->
+  <!-- <div id="stick-content" class=""> -->
+    <app-de-vertical id="holdToThresold"></app-de-vertical>
+    <!-- <app-desenia-frames class="d-flex" style="margin-left: calc(50% - 191px);"></app-desenia-frames> -->
+  <!-- </div> -->
   <!-- <div id="stick-content">
     <router-outlet></router-outlet> 
   </div> -->
+</div>
+
+<div id="content-wrap">
+  <!-- STORE ALL OTHER CONTENT HERE -->
 </div>
 
 <!-- <h2>෴</h2> -->

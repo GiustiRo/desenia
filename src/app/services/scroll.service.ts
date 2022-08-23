@@ -5,15 +5,21 @@ import { Injectable } from '@angular/core';
 })
 export class ScrollService {
   isSmallScreen: boolean = window.isSmallScreen;
-
+  thresholdValue: number = 1400;
   constructor() {}
 
   splitScreen(event: Event): void | boolean {
-    let thresholdValue = 1400;
-    console.warn('w.y: ', window.scrollY);
-    
-    if(window.scrollY > thresholdValue * 1.5){
-      return
+    let thresholdValue = this.thresholdValue;
+    console.warn('win.y: ', window.scrollY);
+    // if(window.scrollY > thresholdValue * 1.5){
+    //   // return
+    //   (document.querySelector('#draw') as SVGElement).style.strokeDasharray = `${thresholdValue / 1.5 + window.scrollY * 1.2}px`;
+    // }
+    if(window.scrollY > thresholdValue / 2){
+      // return
+      (document.querySelector('#draw') as SVGElement).style.strokeDasharray = `${thresholdValue + window.scrollY}px`;
+    }else{
+      (document.querySelector('#draw') as SVGElement).style.strokeDasharray = `${window.scrollY}px`;
     }
     let split = document.getElementsByClassName('main-content');
     let multiply = 2;

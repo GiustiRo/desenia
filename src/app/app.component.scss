@@ -138,33 +138,36 @@ main.main-content {
     }
 }
 
+// #stick-nav {
+//     bottom: 0px;
+//     z-index: 1;
+
+//     nav {
+//         position: fixed;
+//         left: 0;
+//         top: 0;
+//     }
+// }
+
+
 // Back container & elements after scroll
 #beyond-desenia {
-    position: fixed;
     top: 0px;
     left: 0;
     width: 100%;
-    min-height: 100vh;
+    min-height: 150vh;
     text-align: center;
+}
 
-    #stick-nav {
-        bottom: 0px;
-        z-index: 1;
+#content-wrap {
+    width: 100vw;
+    transform: translateY(50vh);
+    // background-color: var(--pri-color);
+    min-height: 100vh;
+    // box-shadow: 0px 15px 30px -20px black inset;
 
-        nav {
-            position: fixed;
-            left: 0;
-            top: 0;
-        }
-    }
-
-    #stick-content {
-        // top: 12em;
-        position: inherit;
-        height: 100vh;
-        align-items: center;
-        overflow: auto;
-    }
+    z-index: -1;
+    position: relative;
 
 }
 

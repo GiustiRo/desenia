@@ -15,7 +15,10 @@ import { ScrollService } from './services/scroll.service';
 //     --cua-color: #60473B;
 //     --qui-color: #281209;
 declare global {
-  interface Window { isSmallScreen: any; }
+  interface Window { 
+    isSmallScreen: any;
+    thresholdValue: number;
+   }
 }
 
 @Component({
@@ -28,18 +31,15 @@ export class AppComponent {
   isSmallScreen: boolean = window.isSmallScreen;
   virtualScroll: number = 0;
   constructor(private store: Store<fromMain.State>, private fire: FireService, private route: Router, private scrollSv: ScrollService) {
+
     this.route.navigate(['/']);
     window.scrollTo(0, 0)
     // this.store.dispatch(fromPhotoActions.loadPhotos());
     // this.store.dispatch(fromInteriorActions.loadInteriors());
     window['isSmallScreen'] = window.outerWidth < 600 ? true : false;
     this.isSmallScreen = window.isSmallScreen;
+    window.thresholdValue = this.scrollSv.thresholdValue;
     if (!this.isSmallScreen) window.addEventListener('scroll', this.scrollSv.splitScreen);
-  }
-
-  scrollAll(event:any): void {
-    console.warn('scroll??????????????');
-    
   }
 
   entryViewport(): void {
