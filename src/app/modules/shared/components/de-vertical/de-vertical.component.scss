@@ -60,13 +60,15 @@
 
 #draw{
     position: absolute;
-    height: 700px;
+    // height: 700px;
     stroke-width: 2px;
     left: calc(100vw - (50vw + 122px));
     width: 270px;
     margin-top: -1.6em;
     stroke-dashoffset: 1650px;
     stroke-dasharray: 1524px;
+    z-index: -1;
+    transition: .3s;
 
 }
 

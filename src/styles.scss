@@ -1,5 +1,5 @@
 // @import url('https://fonts.googleapis.com/css2?family=Stick+No+Bills:wght@200&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;400&display=swap');
 // @import url('https://fonts.googleapis.com/css2?family=Vidaloka&display=swap');
 @import '../node_modules/bootstrap/scss/functions';
 @import '../node_modules/bootstrap/scss/variables';
@@ -89,6 +89,10 @@ body, #stick-content {
 .stroke-07 {
     color: var(--qui-color) !important;
     stroke-width: 0.7 !important;
+}
+.stroke-15 {
+    color: var(--sec-color) !important;
+    stroke-width: 1.5 !important;
 }
 
 @media (max-width: 600px) {

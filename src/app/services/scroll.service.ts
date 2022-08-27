@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { gsap } from "gsap";
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 @Injectable({
   providedIn: 'root'
@@ -6,21 +8,16 @@ import { Injectable } from '@angular/core';
 export class ScrollService {
   isSmallScreen: boolean = window.isSmallScreen;
   thresholdValue: number = 1400;
-  constructor() {}
+  constructor() {
+    gsap.registerPlugin(ScrollTrigger);
+  }
 
+  // Main Intro Animation (vanilla).
   splitScreen(event: Event): void | boolean {
     let thresholdValue = this.thresholdValue;
-    console.warn('win.y: ', window.scrollY);
-    // if(window.scrollY > thresholdValue * 1.5){
-    //   // return
-    //   (document.querySelector('#draw') as SVGElement).style.strokeDasharray = `${thresholdValue / 1.5 + window.scrollY * 1.2}px`;
-    // }
-    // if(window.scrollY > thresholdValue / 2){
-      // return
-      (document.querySelector('#draw') as SVGElement).style.strokeDasharray = `${thresholdValue + window.scrollY}px`;
-    // }else{
-    //   (document.querySelector('#draw') as SVGElement).style.strokeDasharray = `${window.scrollY}px`;
-    // }
+    // console.warn('win.y: ', window.scrollY);
+    (document.querySelector('#draw') as SVGElement).style.strokeDasharray = `${thresholdValue + window.scrollY}px`;
+
     let split = document.getElementsByClassName('main-content');
     let multiply = 2;
     let lvl = 5;
@@ -74,4 +71,27 @@ export class ScrollService {
       }
     }
   }
+
+
+  // Horizontal animation for titles & images (GSAP)
+  hzScrollProjects(): void {
+    gsap.utils.toArray('.draw-section').forEach((section, index) => {
+      if (section instanceof HTMLDivElement) {
+        const w = (section as HTMLDivElement).querySelectorAll('.wrapper');
+        for (let i = 0; i < w.length; i++) {
+          // const element = w[i];
+          const [x, xEnd] = (i % 2) ? ['100%', (w[i]!.scrollWidth - section.offsetWidth) * -1] : [w[i]!.scrollWidth * -0.2, '100px'];
+          gsap.fromTo(w[i], { x }, {
+            x: xEnd,
+            scrollTrigger: {
+              trigger: section,
+              scrub: 0.5
+            }
+          });
+        }
+
+      }
+    });
+  }
+
 }
