@@ -161,14 +161,27 @@ main.main-content {
 
 #content-wrap {
     width: 100vw;
-    transform: translateY(50vh);
-    // background-color: var(--pri-color);
+    transform: translateY(20vh);
+    // background-color: var(--tri-color);
     min-height: 100vh;
     // box-shadow: 0px 15px 30px -20px black inset;
-
+    color: var(--white);
     z-index: -1;
     position: relative;
+    // padding: 2em;
 
+    display: flex;
+    justify-content: center;
+}
+.draw-section{
+    background: linear-gradient(
+    to right,
+    var(--cua-color) 0%,
+    var(--cua-color) 50%,
+    var(--tri-color) 50%,
+    var(--tri-color) 100%
+  );
+  width: 100vw;
 }
 
 @media (max-width: 600px) {

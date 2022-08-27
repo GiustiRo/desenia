@@ -15,12 +15,12 @@ export class ScrollService {
     //   // return
     //   (document.querySelector('#draw') as SVGElement).style.strokeDasharray = `${thresholdValue / 1.5 + window.scrollY * 1.2}px`;
     // }
-    if(window.scrollY > thresholdValue / 2){
+    // if(window.scrollY > thresholdValue / 2){
       // return
       (document.querySelector('#draw') as SVGElement).style.strokeDasharray = `${thresholdValue + window.scrollY}px`;
-    }else{
-      (document.querySelector('#draw') as SVGElement).style.strokeDasharray = `${window.scrollY}px`;
-    }
+    // }else{
+    //   (document.querySelector('#draw') as SVGElement).style.strokeDasharray = `${window.scrollY}px`;
+    // }
     let split = document.getElementsByClassName('main-content');
     let multiply = 2;
     let lvl = 5;

@@ -14,6 +14,7 @@
     transition: 0.3s;
     width: 10em;
     height: 10em;
+    margin-left: 1em;
 
     .circles {
         margin-left: -0.3em;
@@ -60,10 +61,11 @@
 #draw{
     position: absolute;
     height: 700px;
-    stroke-width: 3px;
-    left: 39vw;
+    stroke-width: 2px;
+    left: calc(100vw - (50vw + 122px));
+    width: 270px;
     margin-top: -1.6em;
-    stroke-dashoffset: 1524px;
+    stroke-dashoffset: 1650px;
     stroke-dasharray: 1524px;
 
 }
