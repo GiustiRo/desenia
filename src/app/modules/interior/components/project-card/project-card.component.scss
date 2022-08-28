@@ -1,3 +1,6 @@
+:host{
+    min-width: 100vw;
+}
 #blur-background {
     filter: grayscale(0.5) blur(20px) brightness(0.6);
     width: 115vw;

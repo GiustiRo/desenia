@@ -1,24 +1,12 @@
-<div class="draw-section">
-    <h4>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque vitae, hic officiis expedita magnam non
-        provident sequi fugiat quas aperiam quisquam eligendi facilis? Quisquam odio earum dolorem placeat possimus
-        nobis!</h4>
+<div class="draw-section" *ngFor="let interior of interiorsList;" style="--bg-img: url('{{interior.images.day[0]}}')">
+    <h4>{{interior.longDesc}}</h4>
     <h1 class="p-title pointer">
         <!-- <span>></span> -->
-        le pettit brisé </h1>
-    <h1 class="ghost-title wrapper">le pettit brisé</h1>
+        {{interior.title | lowercase}}
+    </h1>
+    <h1 class="ghost-title wrapper">{{interior.title | lowercase}} </h1>
     <div class="p-snaps wrapper">
-        <div class="p-img"
-            style="background-image:url('https://firebasestorage.googleapis.com/v0/b/desenia-motta.appspot.com/o/interiors%2Fcaba%C3%B1a%2Fportada_light_t.jpg?alt=media&token=1f14cf60-fedd-49e9-a53b-007a778ae715')">
-            <!-- <img src="https://firebasestorage.googleapis.com/v0/b/desenia-motta.appspot.com/o/interiors%2Fcaba%C3%B1a%2Fportada_light_t.jpg?alt=media&token=1f14cf60-fedd-49e9-a53b-007a778ae715" alt=""> -->
-        </div>
-        <div class="p-img"
-            style="background-image:url('https://firebasestorage.googleapis.com/v0/b/desenia-motta.appspot.com/o/interiors%2Fcaba%C3%B1a%2F03.jpg?alt=media&token=73bbfc48-2377-4d39-a1c9-c5a27194d029')">
-        </div>
-        <div class="p-img"
-            style="background-image:url('https://firebasestorage.googleapis.com/v0/b/desenia-motta.appspot.com/o/interiors%2Fcaba%C3%B1a%2F02.jpg?alt=media&token=6b48ad67-2925-4102-8ab3-de34a816a2f8')">
-        </div>
-        <div class="p-img"
-            style="background-image:url('https://firebasestorage.googleapis.com/v0/b/desenia-motta.appspot.com/o/interiors%2Fcaba%C3%B1a%2Fportada_night_t.jpg?alt=media&token=0b0e2bad-5021-4738-98ef-e960bd821128')">
+        <div class="p-img" *ngFor="let pic of interior.images.day" style="--bg-img:url('{{pic}}')">
         </div>
     </div>
     <div class="p-goto" (click)="navTo('interior')">

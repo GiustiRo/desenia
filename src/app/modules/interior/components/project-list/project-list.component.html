@@ -1,4 +1,4 @@
 <!-- Make large heights to switch after scrolling -->
-<div>
+<div class="d-flex" style="overflow:auto">
     <app-project-card *ngFor="let interior of interiorsList; let i = index" [item]="interior" [number]="i+1"></app-project-card>
 </div>
