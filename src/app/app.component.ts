@@ -67,4 +67,9 @@ export class AppComponent {
 
     }
   }
+
+
+  closeOverlay(): void{
+    this.scrollSv.transitionPageBack();
+  }
 }

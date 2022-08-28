@@ -48,7 +48,7 @@ $theme-colors: (
 html {
     scroll-behavior: smooth;
     // height: 300vh;
-    min-height: 600vh;
+    min-height: 400vh;
 }
 
 body {
@@ -93,6 +93,47 @@ body, #stick-content {
 .stroke-15 {
     color: var(--sec-color) !important;
     stroke-width: 1.5 !important;
+}
+
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    fill: var(--cua-color);
+}
+#overlay_projects{
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--pri-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+.op_active{
+    display: block;
+}
+.op_inactive{
+    display: none;
+}
+
+.X_overlay{
+    width: 40px !important;
+    height: 40px !important;
+    background-color: var(--white);
+    border-radius: 100%;
+    margin: 2em;
+    color: var(--qui-color);
+    stroke-width: 1px !important;
+    padding: 5px;
+
+    top: 20px;
+    right: 20px;
+    float: right;
+    transition: .3s;
+}
+.X_overlay:hover{
+    transform: rotate(90deg);
 }
 
 @media (max-width: 600px) {

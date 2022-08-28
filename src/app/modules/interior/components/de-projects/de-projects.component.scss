@@ -103,14 +103,17 @@
     }
 
     .p-goto {
+        margin-top: 10vh;
         i-feather {
             width: 50px;
             margin-top: 40px !important;
+            // fill: none;
             transition: .3s;
         }
 
         &:hover {
             i-feather {
+                // fill: var(--cua-color);
                 margin-top: 35px !important;
             }
         }

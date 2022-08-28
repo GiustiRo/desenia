@@ -26,7 +26,7 @@
 <main class="main-content des-layer l5"></main>
 <main class="main-content des-layer l5"></main>
 
-<div id="beyond-desenia" appDeferLoading (deferLoad)="entryViewport()">
+<div id="beyond-desenia">
   <!-- Navbar -->
   <!-- <div id="stick-nav" class="col-12 d-flex position-sticky justify-content-center">
     <nav class="col-12 px-0">
@@ -37,9 +37,19 @@
   <app-de-vertical id="holdToThresold"></app-de-vertical>
 </div>
 
-<div id="content-wrap">
+<div id="content-wrap" appDeferLoading (deferLoad)="entryViewport()">
   <!-- STORE ALL OTHER CONTENT HERE -->
   <app-de-projects></app-de-projects>
+</div>
+
+<svg class="overlay" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+  <path class="overlay__path" vector-effect="non-scaling-stroke" d="M 0 100 V 100 Q 50 100 100 100 V 100 z" />
+</svg>
+<div id="overlay_projects" class="op_inactive">
+  <i-feather name="X" class="m-2 X_overlay pointer" style="z-index: 99; position:relative;" (click)="closeOverlay()"></i-feather>
+
+  <!-- <h1 (click)="closeOverlay()">X</h1> -->
+  <router-outlet></router-outlet>
 </div>
 
 <!-- <h2>෴</h2> -->
