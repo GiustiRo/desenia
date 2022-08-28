@@ -1,8 +1,6 @@
 .des-layer {
-    // position: absolute;
-    // top: 0;
-    // width: 100%;
-    position: relative
+    position: fixed !important;
+    top: 0;
 }
 
 .des-layer.l1 {
@@ -11,51 +9,27 @@
 
 .des-layer.l2 {
     z-index: 1999;
-    transform: translateY(-102vh);
-
     background-color: var(--sec-color) !important;
-    // main {
-    //     background-color: var(--sec-color) !important;
-    // }
 }
 
 .des-layer.l3 {
     z-index: 1998;
-    transform: translateY(-204vh);
-
     background-color: var(--tri-color) !important;
-    // main {
-    //     background-color: var(--tri-color) !important;
-    // }
 }
 
 .des-layer.l4 {
     z-index: 1997;
-    transform: translateY(-307vh);
-
     background-color: var(--cua-color) !important;
-    // main {
-    //     background-color: var(--cua-color) !important;
-    // }
 }
 
 .des-layer.l5 {
     z-index: 1996;
-    transform: translateY(-409vh);
     background-color: #413028 !important;
-
-    // main {
-    //     background-color: #413028 !important;
-    // }
 }
 
 main.main-content:first-of-type {
     align-items: flex-end;
     box-shadow: 0 0 15px -5px black;
-
-    section {
-        margin-right: -45px;
-    }
 
     header {
         width: 10em;
@@ -68,13 +42,23 @@ main.main-content:first-of-type {
 
 main.main-content:nth-child(2n) {
     align-items: flex-start;
+    right: 0;
 
     header {
         margin-top: 2em;
     }
+
+    div {
+        h1 {
+            // margin-bottom: 47px;
+
+        }
+    }
 }
 
 main.main-content {
+    transition: 0.3s;
+    min-height: 101vh;
     max-width: 50%;
     width: 50%;
     background-color: var(--pri-color);
@@ -84,13 +68,12 @@ main.main-content {
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: min(100vh + 10px, 120vh);
     position: relative;
     z-index: 2000;
 
     section {
-        margin-top: -8em;
         font-family: 'Endensor', serif;
+
 
         header {
             position: relative;
@@ -103,7 +86,7 @@ main.main-content {
 
         div {
             position: relative;
-            opacity: 0;
+            overflow: hidden;
         }
 
         .fade-in {
@@ -121,8 +104,8 @@ main.main-content {
 
         .spiral-left {
             float: left;
-            margin-right: 50px;
-            margin-top: -8.5em;
+            // margin-right: 50px;
+            // margin-top: -8.5em;
 
         }
 
@@ -135,48 +118,72 @@ main.main-content {
         div:first-of-type {
             background-color: var(--pri-color);
             z-index: 1;
-            animation: intro-title 1s ease forwards;
 
-            h1 {
-                font-size: 6em;
-                margin: 0px;
-                line-height: 0.7em;
-                margin-top: 40px;
-            }
         }
 
         div:last-of-type {
+            position: absolute;
             margin-left: 2px;
             z-index: 0;
-            animation: intro-title-secondary .5s .8s ease forwards;
+            margin-top: -30px;
+            opacity: 0;
+            animation: intro-title .5s .8s ease forwards;
+        }
+
+        h1 {
+            font-size: 6em;
+            line-height: 0.7em;
+            animation: intro-title 1s ease forwards;
         }
     }
 }
 
+// #stick-nav {
+//     bottom: 0px;
+//     z-index: 1;
+
+//     nav {
+//         position: fixed;
+//         left: 0;
+//         top: 0;
+//     }
+// }
+
+
 // Back container & elements after scroll
 #beyond-desenia {
-
-    // transform: translateY(-310vh);
-    #stick {
-        top: 0px;
-        z-index: 1;
-    }
-
-    nav {
-        position: sticky;
-        top: 0;
-    }
-
-    min-height: 100vh;
-    margin-top: -400vh;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    min-height: 150vh;
     text-align: center;
-
 }
+
+#content-wrap {
+    width: 100vw;
+    transform: translateY(20vh);
+    min-height: 100vh;
+    color: var(--white);
+    z-index: -1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+}
+
+    //     background: linear-gradient(
+    //     to right,
+    //     var(--cua-color) 0%,
+    //     var(--cua-color) 50%,
+    //     var(--tri-color) 50%,
+    //     var(--tri-color) 100%
+    //   );
+
 
 @media (max-width: 600px) {
     #beyond-desenia {
         min-height: unset;
-        margin-top: -500vh;
+        // margin-top: -500vh;
     }
 }
 

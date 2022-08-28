@@ -12,13 +12,15 @@ import { ThreeBoxComponent } from './components/three-box/three-box.component';
 import { UICarouselModule } from 'ng-carousel-iuno';
 import { IconsModule } from '../../components/icons/icons.module';
 import { ProjectListComponent } from './components/project-list/project-list.component';
+import { DeProjectsComponent } from './components/de-projects/de-projects.component';
 
 
 @NgModule({
   declarations: [
     ProjectCardComponent,
     ThreeBoxComponent,
-    ProjectListComponent
+    ProjectListComponent,
+    DeProjectsComponent
   ],
   imports: [
     SharedModule,
@@ -31,6 +33,7 @@ import { ProjectListComponent } from './components/project-list/project-list.com
   ],
   exports: [
     ProjectCardComponent,
+    DeProjectsComponent,
     ThreeBoxComponent,
     UICarouselModule,
     IconsModule

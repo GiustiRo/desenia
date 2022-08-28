@@ -30,7 +30,7 @@ import { SharedModule } from './modules/shared/shared.module';
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     PhotoModule,
-    // InteriorModule,
+    InteriorModule,
     // IconsModule
     SharedModule
   ],

@@ -1,0 +1,272 @@
+.scrollable {
+    transition: 0.3s;
+}
+
+// GENERIC
+.square-desenia {
+    overflow: auto;
+    border-color: var(--white);
+    color: var(--white);
+    justify-content: center;
+    padding: 1em;
+    background: none;
+    transition: 0.3s;
+    // height: 32vh;
+
+    h2 {
+        letter-spacing: 20px;
+        font-size: 6em;
+        margin: 0;
+    }
+
+    .circles {
+        margin-left: -0.3em;
+        margin-top: 5px;
+        margin-right: -100px;
+
+        svg {
+            stroke: white;
+            stroke-dasharray: 4000;
+            stroke-width: 13px;
+            stroke-dashoffset: 0;
+            transition: 0.3s;
+        }
+
+        img,
+        svg {
+            // position: absolute;
+            transition: 0.3s;
+            width: 150px;
+
+            path,
+            * {
+                transition: 1s;
+            }
+        }
+
+        img:first-of-type,
+        svg:first-of-type {
+            animation: infinite-spin 7s linear infinite;
+        }
+
+        img:last-of-type,
+        svg:last-of-type {
+            animation: infinite-spin 7s linear infinite reverse;
+            margin-top: 5px;
+            margin-top: -11em;
+        }
+
+        img:hover,
+        svg:hover {
+            filter: drop-shadow(0 0 10px white);
+            cursor: pointer;
+        }
+    }
+}
+
+// STYLE 1
+#desenia-a {
+    &.square-desenia {
+        border: 14px solid;
+        border-style: groove;
+        background: linear-gradient(240deg, #20537a78, transparent);
+        background-size: 50px;
+        padding-inline: 40px;
+    }
+
+    h2 {
+        font-size: 8em;
+        font-family: 'Waves Club', serif;
+
+        &#hde {
+            margin-left: -18px;
+            padding-top: 40px;
+            letter-spacing: 30px;
+        }
+
+        &#hsenia {
+            padding-left: 10px;
+            margin-top: -20px;
+            letter-spacing: 16px;
+        }
+    }
+}
+
+// STYLE 2
+#desenia-b {
+    &.square-desenia {
+        // background: repeating-linear-gradient(45deg, #b06c571f, transparent 52px);
+        // background: repeating-linear-gradient(0deg, #b06c571f, transparent 100%);
+        // background-position: 0em 12em;
+        background: repeating-linear-gradient(0deg, #c0a687, transparent 380%);
+        background-position: 0em 12em;
+        padding: 1.3em;
+        padding-inline: 1.8em;
+    }
+
+    h2 {
+        font-size: 6em;
+        font-family: 'Endensor', serif;
+
+        &#hde {
+            padding-top: 20px;
+        }
+
+        &#hsenia {
+            padding-left: 10px;
+            letter-spacing: 16px;
+        }
+    }
+}
+
+// STYLE 3
+#desenia-c {
+    &.square-desenia {
+        border: 5px solid;
+
+        h2 {
+            font-size: 6em;
+            font-family: 'Josefin Sans', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: 100;
+
+            &#hde {
+                padding-top: 20px;
+            }
+
+            &#hsenia {
+                padding-left: 10px;
+                letter-spacing: 10px;
+            }
+        }
+    }
+}
+
+@keyframes infinite-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#nav-to-left {
+    width: 3000px;
+    height: 90vh;
+    display: flex;
+
+    // flex-direction: column;
+    flex-grow: 1;
+
+    div {
+        width: 100%;
+    }
+
+    #de-timeline {
+        * {
+            transition: 0.3s;
+        }
+
+        z-index: 1;
+        display: flex;
+        justify-content: space-evenly;
+        flex-grow: 1;
+        margin-inline: 40em;
+        // margin-top: -45px !important; // remove once svg desing fits.
+
+        .timeline-box {
+            // border: 2px solid rgba(255, 255, 255, 0.283);
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            flex-direction: column;
+            width: 6em;
+
+            .timeline-title {
+                writing-mode: vertical-lr;
+                // font-size: 24px;
+                color: white;
+                display: flex;
+                justify-content: flex-start;
+                max-height: 0px;
+                align-items: flex-end;
+                white-space: pre;
+                flex-direction: column;
+
+                span {
+                    padding-bottom: 10px;
+                    transform: scaleX(1.2);
+                    letter-spacing: -2px;
+                    font-family: 'Endensor', serif;
+                    font-size: 4em;
+                    cursor: pointer;
+                }
+
+                small {
+                    text-transform: lowercase;
+                    font-weight: 100;
+                    font-size: 1.2em;
+                    padding-bottom: 40px;
+                    overflow-x: hidden;
+                    transform: translateX(10px) scaleX(1.2);
+                    opacity: 0.7;
+                }
+            }
+
+            .timeline-item {
+                width: 50px;
+                height: 50px;
+                border-radius: 100%;
+                // background-color: white;
+                border: 5px solid white;
+                box-shadow: -50px 0px 0px 10px white inset;
+                background-color: var(--qui-color);
+                background-size: contain !important;
+            }
+
+            &:hover {
+                .timeline-item {
+                    transform: rotate(90deg);
+                    box-shadow: -5px 0px 0px 0px white inset;
+                    filter: drop-shadow(0px 0px 6px black);
+                    margin-top: 10px !important;
+                }
+
+                .timeline-title {
+                    span {
+                        padding-bottom: 20px !important;
+
+                    }
+
+                    small {
+                        margin-left: -20px;
+                    }
+                }
+            }
+        }
+    }
+
+    #de-svg-bg {
+        z-index: 0;
+        position: absolute;
+        top: 20vh;
+        // opacity: 0.1;
+        width: 2500px;
+
+        // left: 40vh;
+        // margin-top: -300px;
+        svg {
+            margin-left: -140px;
+            margin-top: 20px;
+
+            path {
+                stroke-width: 1.5px;
+                stroke-dashoffset: 15050px;
+                stroke-dasharray: 5100;
+                stroke-linecap: round;
+                transition: 1s;
+            }
+        }
+    }
+}

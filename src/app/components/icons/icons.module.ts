@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 // import { CommonModule } from '@angular/common';
 
 import { FeatherModule } from 'angular-feather';
-import { Camera, Heart, Home, Codepen, Sun, Moon, BookOpen, ChevronLeft, ChevronRight, CornerUpLeft, Eye, EyeOff, Menu } from 'angular-feather/icons';
+import { Camera, Heart, Home, Codepen, Sun, Moon, BookOpen, ChevronLeft, ChevronRight, CornerUpLeft, Eye, EyeOff, Menu, X} from 'angular-feather/icons';
 
 const icons = {
   Camera,
@@ -17,7 +17,8 @@ const icons = {
   CornerUpLeft,
   Eye,
   EyeOff,
-  Menu
+  Menu,
+  X
 };
 
 @NgModule({
