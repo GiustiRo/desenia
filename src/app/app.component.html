@@ -40,16 +40,30 @@
 <div id="content-wrap" appDeferLoading (deferLoad)="entryViewport()">
   <!-- STORE ALL OTHER CONTENT HERE -->
   <app-de-projects></app-de-projects>
+  <footer>
+    <div class="col-6 pt-5 txt-footer">
+      <p>¡Hola!</p>
+      <p>091471885</p>
+      <p>@martinamottaa</p>
+      <p>martinacimino22@gmail.com</p>
+    </div>
+    <div class="col-6 d-flex justify-content-center">
+      <div class="bg-footer"></div>
+    </div>
+    
+  </footer>
 </div>
 
+
+<!-- OVERLAY PROJECTS -->
 <svg class="overlay" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
   <path class="overlay__path" vector-effect="non-scaling-stroke" d="M 0 100 V 100 Q 50 100 100 100 V 100 z" />
 </svg>
 <div id="overlay_projects" class="op_inactive">
   <i-feather name="X" class="m-2 X_overlay pointer" style="z-index: 99; position:relative;" (click)="closeOverlay()"></i-feather>
-
-  <!-- <h1 (click)="closeOverlay()">X</h1> -->
   <router-outlet></router-outlet>
 </div>
+
+
 
 <!-- <h2>෴</h2> -->
