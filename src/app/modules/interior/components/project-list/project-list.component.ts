@@ -16,9 +16,7 @@ export class ProjectListComponent implements OnInit {
   interiorsList: Interior[] = [];
   constructor(
     private store: Store<fromMain.State>
-  ) {
-    this.store.dispatch(fromInteriorActions.loadInteriors());
-   }
+  ) { }
 
   ngOnInit(): void {
     this.store.select(fromInteriorSelectors.selectInteriorAll).pipe().subscribe(interiors => {

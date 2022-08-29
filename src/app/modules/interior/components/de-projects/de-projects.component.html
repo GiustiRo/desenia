@@ -1,27 +1,24 @@
-<div class="draw-section">
-    <h4>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque vitae, hic officiis expedita magnam non
-        provident sequi fugiat quas aperiam quisquam eligendi facilis? Quisquam odio earum dolorem placeat possimus
-        nobis!</h4>
+<div class="draw-section" *ngFor="let interior of interiorsList;" style="--bg-img: url('{{interior.images.day[0]}}')">
+    <h4>{{interior.longDesc}}</h4>
     <h1 class="p-title pointer">
         <!-- <span>></span> -->
-        le pettit brisé </h1>
-    <h1 class="ghost-title wrapper">le pettit brisé</h1>
+        {{interior.title | lowercase}}
+    </h1>
+    <h1 class="ghost-title wrapper">{{interior.title | lowercase}} </h1>
+    <!-- <div class="fake-line"></div> -->
     <div class="p-snaps wrapper">
-        <div class="p-img"
-            style="background-image:url('https://firebasestorage.googleapis.com/v0/b/desenia-motta.appspot.com/o/interiors%2Fcaba%C3%B1a%2Fportada_light_t.jpg?alt=media&token=1f14cf60-fedd-49e9-a53b-007a778ae715')">
-            <!-- <img src="https://firebasestorage.googleapis.com/v0/b/desenia-motta.appspot.com/o/interiors%2Fcaba%C3%B1a%2Fportada_light_t.jpg?alt=media&token=1f14cf60-fedd-49e9-a53b-007a778ae715" alt=""> -->
-        </div>
-        <div class="p-img"
-            style="background-image:url('https://firebasestorage.googleapis.com/v0/b/desenia-motta.appspot.com/o/interiors%2Fcaba%C3%B1a%2F03.jpg?alt=media&token=73bbfc48-2377-4d39-a1c9-c5a27194d029')">
-        </div>
-        <div class="p-img"
-            style="background-image:url('https://firebasestorage.googleapis.com/v0/b/desenia-motta.appspot.com/o/interiors%2Fcaba%C3%B1a%2F02.jpg?alt=media&token=6b48ad67-2925-4102-8ab3-de34a816a2f8')">
-        </div>
-        <div class="p-img"
-            style="background-image:url('https://firebasestorage.googleapis.com/v0/b/desenia-motta.appspot.com/o/interiors%2Fcaba%C3%B1a%2Fportada_night_t.jpg?alt=media&token=0b0e2bad-5021-4738-98ef-e960bd821128')">
+        <div class="p-img" *ngFor="let pic of interior.images.day" style="--bg-img:url('{{pic}}')">
         </div>
     </div>
     <div class="p-goto" (click)="navTo('interior')">
-        <i-feather name="eye" class="m-2 stroke-15 pointer"></i-feather>
+        <!-- <i-feather name="eye" class="m-2 stroke-15 pointer"></i-feather> -->
+        <button class="button button--surtur">
+            <svg aria-hidden="true" class="eye" width="70" height="70" viewBox="0 0 70 70">
+                <path class="eye__outer" d="M10.5 35.308c5.227-7.98 14.248-13.252 24.5-13.252s19.273 5.271 24.5 13.252c-5.227 7.98-14.248 13.253-24.5 13.253s-19.273-5.272-24.5-13.253z"/>
+                <path class="eye__lashes-up" d="M35 8.802v8.836M49.537 11.383l-3.31 8.192M20.522 11.684l3.31 8.192" />
+                <path class="eye__lashes-down" d="M35 61.818v-8.836 8.836zM49.537 59.237l-3.31-8.193 3.31 8.193zM20.522 58.936l3.31-8.193-3.31 8.193z" />
+                <circle class="eye__iris" cx="35" cy="35.31" r="6.221" />
+            </svg>
+        </button>
     </div>
 </div>

@@ -6,9 +6,11 @@
     justify-content: center;
     margin-top: 30em;
     align-items: center;
-    background: url("https://firebasestorage.googleapis.com/v0/b/desenia-motta.appspot.com/o/interiors%2Fcaba%C3%B1a%2Fportada_light_t.jpg?alt=media&token=1f14cf60-fedd-49e9-a53b-007a778ae715");
+    // background: url("https://firebasestorage.googleapis.com/v0/b/desenia-motta.appspot.com/o/interiors%2Fcaba%C3%B1a%2Fportada_light_t.jpg?alt=media&token=1f14cf60-fedd-49e9-a53b-007a778ae715");
+    background-image: var(--bg-img);
     -webkit-background-clip: text;
     background-clip: text;
+    margin-bottom: 100vh;
 
     h4 {
         color: var(--pri-color);
@@ -22,7 +24,7 @@
     h1 {
         color: var(--pri-color);
         font-family: 'Endensor', serif;
-        font-size: 9vw;
+        font-size: clamp(6em, 10vw, 10vw);
 
         &.p-title {
             transition: .3s;
@@ -78,10 +80,28 @@
         margin-top: -10vw;
     }
 
+    .fake-line {
+        height: 45vh;
+        width: 3px;
+        position: absolute;
+        left: calc(50% + 3.2px);
+        margin-top: 23vh;
+        background-color: white;
+    }
+
     .p-snaps {
         display: flex;
+        min-width: 140%;
+        // &::after{
+        //     content: '';
+        //     height: 100%;
+        //     width: 2px;
+        //     background-color: white;
+        // }
 
         .p-img {
+            background-color: var(--pri-color);
+            background-image: var(--bg-img);
             // max-width: 40vw;
             background-size: cover;
             // border-radius: 50% 50% 0 0;
@@ -89,10 +109,12 @@
 
             margin: 2em;
             z-index: -2;
-            width: 30vw;
-            height: 20vw;
+            // width: 30vw;
+            // height: 20vw;
             background-repeat: no-repeat;
             filter: saturate(0.7);
+            width: clamp(30vw, 50vw, 40vw);
+            min-height: clamp(30vh, 45vh, 50vh);
         }
 
         .p-img:nth-of-type(2n) {
@@ -103,10 +125,14 @@
     }
 
     .p-goto {
-        margin-top: 10vh;
+        // margin-top: 10vh;
+        align-items: center;
+        height: 30vh !important;
+        display: flex;
+
         i-feather {
             width: 50px;
-            margin-top: 40px !important;
+            // margin-top: 40px !important;
             // fill: none;
             transition: .3s;
         }
@@ -123,5 +149,96 @@
 @keyframes runner {
     to {
         transform: translateX(-25%);
+    }
+}
+
+
+
+
+
+.button--surtur {
+    padding: 0;
+    background: none;
+    -webkit-clip-path: circle(40% at 50% 50%);
+    clip-path: circle(40% at 50% 50%);
+}
+
+// .button--surtur:focus-visible {
+// 	background: #443ffc;
+// }
+
+// .textcircle {
+// 	position: relative;
+// 	display: block;
+// 	width: 200px;
+// }
+
+// .textcircle text {
+// 	font-size: 32px;
+// 	text-transform: uppercase;
+// 	fill: white;
+// }
+
+// .textcircle textPath {
+// 	letter-spacing: 17px; /* Firefox needs this */
+// }
+
+// .button--surtur:hover .textcircle {
+// 	animation: rotateIt 7s linear infinite;
+// }
+
+.eye {
+    position: relative;
+    z-index: 2;
+    width: 60px;
+    height: 60px;
+    top: calc(50% - 30px);
+    left: calc(50% - 30px);
+}
+
+.eye__outer,
+.eye__inner,
+.eye__lashes-up,
+.eye__lashes-down {
+    stroke: white;
+    fill: none;
+    stroke-width: 3px;
+}
+
+.eye__lashes-down {
+    opacity: 0;
+}
+
+.button--surtur:hover .eye__lashes-up,
+.button--surtur:hover .eye__inner,
+.button--surtur:hover .eye__iris {
+    animation: blinkHide 2s step-end infinite;
+}
+
+.button--surtur:hover .eye__lashes-down {
+    animation: blinkShow 2s step-end infinite;
+}
+
+.eye__iris {
+    fill: var(--pri-color);
+}
+
+@keyframes blinkHide {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+}
+
+@keyframes blinkShow {
+    0% {
+        opacity: 1;
+    }
+
+    10% {
+        opacity: 0;
     }
 }

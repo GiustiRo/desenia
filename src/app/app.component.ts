@@ -44,7 +44,8 @@ export class AppComponent {
 
   entryViewport(): void {
     console.warn('ok');
-    this.route.navigate(['/interior']) // Set beginning module to display 
+    this.route.navigate(['/interior']); // Set beginning module to display;
+    this.store.dispatch(fromInteriorActions.loadInteriors());
   }
 
   
