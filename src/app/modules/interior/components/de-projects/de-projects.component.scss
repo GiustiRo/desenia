@@ -80,13 +80,13 @@
         margin-top: -10vw;
     }
 
-    .fake-line{
+    .fake-line {
         height: 45vh;
-    width: 3px;
-    position: absolute;
-    left: calc(50% + 3.2px);
-    margin-top: 23vh;
-    background-color: white;
+        width: 3px;
+        position: absolute;
+        left: calc(50% + 3.2px);
+        margin-top: 23vh;
+        background-color: white;
     }
 
     .p-snaps {
@@ -125,7 +125,11 @@
     }
 
     .p-goto {
-        margin-top: 10vh;
+        // margin-top: 10vh;
+        align-items: center;
+        height: 30vh !important;
+        display: flex;
+
         i-feather {
             width: 50px;
             // margin-top: 40px !important;
@@ -145,5 +149,96 @@
 @keyframes runner {
     to {
         transform: translateX(-25%);
+    }
+}
+
+
+
+
+
+.button--surtur {
+    padding: 0;
+    background: none;
+    -webkit-clip-path: circle(40% at 50% 50%);
+    clip-path: circle(40% at 50% 50%);
+}
+
+// .button--surtur:focus-visible {
+// 	background: #443ffc;
+// }
+
+// .textcircle {
+// 	position: relative;
+// 	display: block;
+// 	width: 200px;
+// }
+
+// .textcircle text {
+// 	font-size: 32px;
+// 	text-transform: uppercase;
+// 	fill: white;
+// }
+
+// .textcircle textPath {
+// 	letter-spacing: 17px; /* Firefox needs this */
+// }
+
+// .button--surtur:hover .textcircle {
+// 	animation: rotateIt 7s linear infinite;
+// }
+
+.eye {
+    position: relative;
+    z-index: 2;
+    width: 60px;
+    height: 60px;
+    top: calc(50% - 30px);
+    left: calc(50% - 30px);
+}
+
+.eye__outer,
+.eye__inner,
+.eye__lashes-up,
+.eye__lashes-down {
+    stroke: white;
+    fill: none;
+    stroke-width: 3px;
+}
+
+.eye__lashes-down {
+    opacity: 0;
+}
+
+.button--surtur:hover .eye__lashes-up,
+.button--surtur:hover .eye__inner,
+.button--surtur:hover .eye__iris {
+    animation: blinkHide 2s step-end infinite;
+}
+
+.button--surtur:hover .eye__lashes-down {
+    animation: blinkShow 2s step-end infinite;
+}
+
+.eye__iris {
+    fill: var(--pri-color);
+}
+
+@keyframes blinkHide {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+}
+
+@keyframes blinkShow {
+    0% {
+        opacity: 1;
+    }
+
+    10% {
+        opacity: 0;
     }
 }
