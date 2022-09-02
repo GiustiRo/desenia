@@ -63,7 +63,9 @@
     // height: 700px;
     stroke-width: 2px;
     left: calc(100vw - (50vw + 122px));
-    width: 270px;
+    // width: 270px;
+    width: clamp(270px, calc(270px + .5vw), 350px);
+
     margin-top: -1.6em;
     stroke-dashoffset: 1650px;
     stroke-dasharray: 1524px;
