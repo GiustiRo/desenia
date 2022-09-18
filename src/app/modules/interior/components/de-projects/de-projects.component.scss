@@ -59,11 +59,6 @@
         }
 
         &.p-title:hover {
-            // &::after {
-            //     width: 3em;
-            //     left: calc(50vw - 4.5em);
-            // }
-
             span {
                 opacity: 1;
                 width: 40px;
@@ -77,7 +72,7 @@
         position: absolute;
         white-space: nowrap;
         z-index: -1;
-        margin-top: -10vw;
+        margin-top: -35vh;
     }
 
     .fake-line {
@@ -92,25 +87,14 @@
     .p-snaps {
         display: flex;
         min-width: 140%;
-        // &::after{
-        //     content: '';
-        //     height: 100%;
-        //     width: 2px;
-        //     background-color: white;
-        // }
 
         .p-img {
             background-color: var(--pri-color);
             background-image: var(--bg-img);
-            // max-width: 40vw;
             background-size: cover;
-            // border-radius: 50% 50% 0 0;
-            // border-radius: 100%;
-
             margin: 2em;
+            margin-bottom: 0em;
             z-index: -2;
-            // width: 30vw;
-            // height: 20vw;
             background-repeat: no-repeat;
             filter: saturate(0.7);
             width: clamp(30vw, 50vw, 40vw);
@@ -119,27 +103,31 @@
 
         .p-img:nth-of-type(2n) {
             z-index: 1;
-            // border-radius: 0 0 50% 50%;
 
         }
     }
 
     .p-goto {
-        // margin-top: 10vh;
+        padding-top: 2em;
+        justify-content: center;
+        border: 3px solid transparent;
+        text-align: center;
+        width: 13vw !important;
         align-items: center;
-        height: 30vh !important;
+        height: 18vh !important;
         display: flex;
+        background-color: var(--qui-color);
+        border-bottom: 3px solid white;
+        border-radius: 100%;
+
 
         i-feather {
             width: 50px;
-            // margin-top: 40px !important;
-            // fill: none;
             transition: .3s;
         }
 
         &:hover {
             i-feather {
-                // fill: var(--cua-color);
                 margin-top: 35px !important;
             }
         }
@@ -154,38 +142,12 @@
 
 
 
-
-
 .button--surtur {
     padding: 0;
     background: none;
     -webkit-clip-path: circle(40% at 50% 50%);
     clip-path: circle(40% at 50% 50%);
 }
-
-// .button--surtur:focus-visible {
-// 	background: #443ffc;
-// }
-
-// .textcircle {
-// 	position: relative;
-// 	display: block;
-// 	width: 200px;
-// }
-
-// .textcircle text {
-// 	font-size: 32px;
-// 	text-transform: uppercase;
-// 	fill: white;
-// }
-
-// .textcircle textPath {
-// 	letter-spacing: 17px; /* Firefox needs this */
-// }
-
-// .button--surtur:hover .textcircle {
-// 	animation: rotateIt 7s linear infinite;
-// }
 
 .eye {
     position: relative;
